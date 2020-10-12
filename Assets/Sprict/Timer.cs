@@ -23,6 +23,12 @@ public class Timer : MonoBehaviour
     void Update()
     {
         int time = (int)(30.0f - Time.time);
+        if (time < 0)
+        {
+            return;
+        }
+
+
         //2桁目_1桁目を消して桁下げして切り捨て
         int _time = time;
         secondDigit = (int)Mathf.Floor((_time - (_time % 10)) * 0.1f);

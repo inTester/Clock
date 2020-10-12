@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     float speed = 0.1f;
+    [SerializeField] GameObject arr;
 
     void Start()
     {
@@ -14,23 +15,12 @@ public class Player : MonoBehaviour
     void Update()
     {
         Vector3 position = this.transform.position;
-        if (Input.GetKey(KeyCode.A))
-        {
-            position += new Vector3(-1, 0, 0) * speed;
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            position += new Vector3(1, 0, 0) * speed;
-        }
-        if (Input.GetKey(KeyCode.W))
-        {
-            position += new Vector3(0, 1, 0) * speed;
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            position += new Vector3(0, -1, 0) * speed;
-        }
+        position += new Vector3(Input.GetAxis("Horizontal"), -Input.GetAxis("Vertical"), 0) * speed;
         this.transform.position = position;
 
+        float radian = Mathf.Atan2(-Input.GetAxis("R_stic_V"), Input.GetAxis("R_stic_H")) * Mathf.Rad2Deg;
+
+        arr.transform.rotation = Quaternion.Euler(0, 0, radian);
     }
+
 }

@@ -7,6 +7,8 @@ public class Bom : MonoBehaviour
     float startTime;
     SpriteRenderer spriteRenderer;
     Rigidbody2D rig;
+    public CountText tcs;
+    bool f;
 
     // Start is called before the first frame update
     void Start()
@@ -27,9 +29,16 @@ public class Bom : MonoBehaviour
         if (diffTime > 5.0f)
         {
             Destroy(this.gameObject);
+            tcs.CountUp(transform);
         }
 
-        Debug.Log(transform.forward);
+        if (f)
+        {
+            if (Input.GetKeyDown("joystick button 5"))
+            {
+                rig.AddForce(new Vector3(Input.GetAxis("R_stic_H") * 1000, -Input.GetAxis("R_stic_V") * 1000, 0));
+            }
+        }
     }
 
     float speed = 1000.0f;
@@ -38,23 +47,15 @@ public class Bom : MonoBehaviour
     {
         if (coll.gameObject.tag == "Player")
         {
-            if (Input.GetKey(KeyCode.A))
-            {
-                rig.AddForce(new Vector3(-1, 0, 0) * speed);
-            }
-            if (Input.GetKey(KeyCode.D))
-            {
-                rig.AddForce(new Vector3(1, 0, 0) * speed);
-            }
-            if (Input.GetKey(KeyCode.W))
-            {
-                rig.AddForce(new Vector3(0, 1, 0) * speed);
-            }
-            if (Input.GetKey(KeyCode.S))
-            {
-                rig.AddForce(new Vector3(0, -1, 0) * speed);
-            }
+            f = true;
+        }
+    }
 
+    private void OnCollisionExit2D(Collision2D coll)
+    {
+        if (coll.gameObject.tag == "Player")
+        {
+            f = false;
         }
     }
 }
