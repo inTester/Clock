@@ -40,12 +40,12 @@ public class Timer : MonoBehaviour
         if (forstDigit != b_forstDigit)
         {
             Destroy(forstDigit_ob);
-            forstDigit_ob = Instantiate(Numbers[forstDigit], new Vector3(2, 0, 0), Quaternion.identity);
+            forstDigit_ob = Instantiate(Numbers[forstDigit], new Vector3(2, 0, 10), Quaternion.identity);
         }
         if (secondDigit != b_secondDigit)
         {
             Destroy(secondDigit_ob);
-            secondDigit_ob = Instantiate(Numbers[secondDigit], new Vector3(-2, 0, 0), Quaternion.identity);
+            secondDigit_ob = Instantiate(Numbers[secondDigit], new Vector3(-2, 0, 10), Quaternion.identity);
         }
 
         b_secondDigit = secondDigit;
