@@ -10,19 +10,30 @@ public class ObstacleManager : MonoBehaviour
     //使用予定の障害物
     [System.Serializable]
     [SerializeField]
+    struct ObstacleData
+    {
+        [Header("オブジェクト")]
+        public GameObject obstacle; //障害物オブジェクト
+        [Header("生成座標"), Tooltip("上記のオブジェクトがsize分 生成されます")]
+        public Vector2[] position; //位置
+    }
+    [System.Serializable]
+    [SerializeField]
     struct ObstacleSetData
     {
-        public GameObject obstacle;
-        public Sprite sprite;
-        public Vector2[] position;
+        [Header("障害物のデータ"), Tooltip("size1つが1パーツ分です")]
+        public ObstacleData[] obstacleData; //障害物の情報
+        [Header("予測用画像")]
+        public Sprite sprite; //予測画像
     }
-    [SerializeField] List<ObstacleSetData> obstacleDatas = new List<ObstacleSetData>();
+    [SerializeField, Header("障害物の設定"), Tooltip("size1つが1セット分です")]
+    List<ObstacleSetData> obstacleSetDatas = new List<ObstacleSetData>();
 
     //使用中の障害物
     float startTime = 0;
     const int MAX_TIME = 4; //障害物変更時間
     int index = 0;
-    List<GameObject> nowObstacles = new List<GameObject>();
+    List<Obstacle> nowObstacles = new List<Obstacle>();
 
     //ステータス
     enum State
@@ -47,7 +58,6 @@ public class ObstacleManager : MonoBehaviour
 
             case State.CREATE:
                 Create(); //障害物の生成
-                          //g.transform.localScale -= new Vector3(-1, -1, 0);
                 TimeStart(); //生成時間の記録
                 state = State.SELECT;
                 break;
@@ -66,11 +76,11 @@ public class ObstacleManager : MonoBehaviour
                 break;
 
             case State.DESTRY:
-                foreach (GameObject g in nowObstacles)
+                foreach (Obstacle cs in nowObstacles)
                 {
-                    //g.transform.localScale -= new Vector3(-1, -1, 0);
-                    Destroy(g); //削除
+                    cs.EndAnimation(); //アニメーション実行&削除
                 }
+                nowObstacles.Clear(); //リスト初期化
                 state = State.CREATE;
                 break;
         }
@@ -80,20 +90,26 @@ public class ObstacleManager : MonoBehaviour
     void RandomSelect()
     {
         //ランダムで障害物を選ぶ
-        index = Random.Range(0, obstacleDatas.Count);
+        index = Random.Range(0, obstacleSetDatas.Count);
         //予測画像を表示
-        nextImage.sprite = obstacleDatas[index].sprite;
+        nextImage.sprite = obstacleSetDatas[index].sprite;
     }
     void Create()
     {
         //決まった座標に生成
-        for (int p = 0; p < obstacleDatas[index].position.Length; p++)
+        for (int d = 0; d < obstacleSetDatas[index].obstacleData.Length; d++)
         {
-            nowObstacles.Add( //生成したオブジェクトを保持しておく
-                Instantiate(obstacleDatas[index].obstacle,
-                            new Vector3(obstacleDatas[index].position[p].x, obstacleDatas[index].position[p].y, 0),
-                            Quaternion.identity)
-                );
+            for (int p = 0; p < obstacleSetDatas[index].obstacleData[d].position.Length; p++)
+            {
+                //一旦変数化
+                var data = obstacleSetDatas[index].obstacleData[d];
+                //生成
+                GameObject g = Instantiate(data.obstacle,
+                                           data.position[p],
+                                           Quaternion.identity);
+                //スクリプト保存
+                nowObstacles.Add(g.GetComponent<Obstacle>());
+            }
         }
     }
 

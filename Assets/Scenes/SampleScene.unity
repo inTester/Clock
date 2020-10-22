@@ -308,19 +308,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextImage: {fileID: 1741116294}
-  obstacleDatas:
-  - obstacle: {fileID: 6395295460505161966, guid: e87377c3077fa3147bf68d84b7228c09,
-      type: 3}
-    sprite: {fileID: 21300000, guid: 93f73136a4f267b44bb6899bf0dec618, type: 3}
-    position:
-    - {x: 0, y: 3}
-    - {x: 0, y: -3}
-  - obstacle: {fileID: 6395295460505161966, guid: e87377c3077fa3147bf68d84b7228c09,
-      type: 3}
-    sprite: {fileID: 21300000, guid: 93f73136a4f267b44bb6899bf0dec618, type: 3}
-    position:
-    - {x: 0, y: 3}
-    - {x: 0, y: -3}
+  obstacleSetDatas:
+  - obstacleData:
+    - obstacle: {fileID: 6395295460505161966, guid: e87377c3077fa3147bf68d84b7228c09,
+        type: 3}
+      position:
+      - {x: 0, y: -3}
+      - {x: 0, y: 3}
+    sprite: {fileID: 21300000, guid: 071e07b00fabbbb45a697583b891019f, type: 3}
+  - obstacleData:
+    - obstacle: {fileID: 4987505281469270260, guid: 975acae1079b53842a2c2b4ef0892c98,
+        type: 3}
+      position:
+      - {x: 3, y: 0}
+      - {x: -3, y: 0}
+    sprite: {fileID: 21300000, guid: 7fcc6ebcb03cda340931d52d1ee26edd, type: 3}
 --- !u!4 &1591570473
 Transform:
   m_ObjectHideFlags: 0
@@ -369,7 +371,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 154}
+  m_AnchoredPosition: {x: 0, y: 122}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1741116294
@@ -391,7 +393,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: d46d34c66a9dc444a8b91adb8ea86245, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
