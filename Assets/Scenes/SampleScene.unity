@@ -323,6 +323,16 @@ MonoBehaviour:
       - {x: 3, y: 0}
       - {x: -3, y: 0}
     sprite: {fileID: 21300000, guid: 7fcc6ebcb03cda340931d52d1ee26edd, type: 3}
+  - obstacleData:
+    - obstacle: {fileID: 4987505281469270260, guid: 975acae1079b53842a2c2b4ef0892c98,
+        type: 3}
+      position:
+      - {x: 3, y: -3}
+    - obstacle: {fileID: 6395295460505161966, guid: e87377c3077fa3147bf68d84b7228c09,
+        type: 3}
+      position:
+      - {x: 0, y: 3}
+    sprite: {fileID: 21300000, guid: b2d9106a1026149498170a4776656e41, type: 3}
 --- !u!4 &1591570473
 Transform:
   m_ObjectHideFlags: 0
