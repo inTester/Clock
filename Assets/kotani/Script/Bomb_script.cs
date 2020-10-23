@@ -11,11 +11,14 @@ public class Bomb_script : MonoBehaviour
     private float bornTime;//生成時の時間
     private float limitTime;//爆発までの時間
 
+    private float g;//green
+
     // Start is called before the first frame update
     void Start()
     {
         bornTime = Time.time;
         fly = false;
+        g = 1.0f;
     }
 
     // Update is called once per frame
@@ -53,8 +56,10 @@ public class Bomb_script : MonoBehaviour
 
     void ColorChange()
     {
-        if(limitTime >= (Limit / 3) * 2) { GetComponent<SpriteRenderer>().color = new Color(1.0f, 0.0f, 0.0f,1.0f); }
-        else if(limitTime >= (Limit / 3)) { GetComponent<SpriteRenderer>().color = new Color(1.0f, 0.5f, 0.0f,1.0f); }
+        float per = 0.3f / ((Limit / 3) * 60);//1フレで減らすG量
+
+        g -= per;
+        GetComponent<SpriteRenderer>().color = new Color(1.0f, g, 0.0f, 1.0f);
     }
 
     //当たり判定↓

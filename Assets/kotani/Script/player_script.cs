@@ -11,7 +11,6 @@ public class player_script : MonoBehaviour
     
     void Start()
     {
-        speed = 0.01f;
         arr.transform.rotation = Quaternion.Euler(0, 0, -90);
     }
 
