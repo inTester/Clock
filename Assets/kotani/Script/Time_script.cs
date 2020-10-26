@@ -13,6 +13,7 @@ public class Time_script : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Application.targetFrameRate = 60;
         count = time;
     }
 

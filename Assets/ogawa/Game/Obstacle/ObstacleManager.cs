@@ -7,6 +7,7 @@ public class ObstacleManager : MonoBehaviour
 {
     //予測画像
     [SerializeField] Image nextImage = default;
+    [SerializeField] int MAX_TIME = 20; //障害物変更時間
 
     //使用予定の障害物
     [System.Serializable]
@@ -32,7 +33,6 @@ public class ObstacleManager : MonoBehaviour
 
     //使用中の障害物
     float startTime = -1;
-    const int MAX_TIME = 4; //障害物変更時間　20秒
     List<Obstacle> nowObstaclesOb = new List<Obstacle>();
     ObstacleSetData nowobstacleData = default;
     bool endF = false;
