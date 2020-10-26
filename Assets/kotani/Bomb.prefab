@@ -96,8 +96,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c512f4c3af03dd949bb1fe2a01611e15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Limit: 3
-  power: 1000
+  Limit: 4
+  power: 300
 --- !u!58 &3355586813565946234
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -133,5 +133,5 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: 52523a5119c92ce4eb9527850d7ebb28, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
