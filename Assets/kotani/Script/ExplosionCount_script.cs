@@ -9,7 +9,7 @@ public class ExplosionCount_script : MonoBehaviour
 
     [SerializeField] private Text text = default;//爆発カウントのテキスト
 
-    private int count;//爆発回数
+    public int count { get; private set; }//爆発回数
 
     void Start()
     {

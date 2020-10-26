@@ -15,9 +15,11 @@ public class NextScene : MonoBehaviour
     void Update()
     {
         //シーン遷移
-        if (Input.GetButtonDown("Enter"))
+        if (Input.GetButtonDown("Next"))
         {
             SceneManager.LoadScene(sceneName);
         }
     }
+
+
 }

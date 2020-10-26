@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8487f7888a942b144832c02772b2ef2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.04
+  speed: 0.1
   arr: {fileID: 1024640715}
   vec:
   - 0
@@ -269,7 +269,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!58 &259751045
 CircleCollider2D:
@@ -479,10 +479,10 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.1
+    x: 0.075
     y: 0.03
-    width: 0.8
-    height: 0.8
+    width: 0.85
+    height: 0.85
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -624,7 +624,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 542476448}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.0207, y: 4.76, z: 0}
+  m_LocalPosition: {x: -4.0207, y: 5.07, z: 0}
   m_LocalScale: {x: 17.789623, y: 0.6427961, z: 0}
   m_Children: []
   m_Father: {fileID: 2009040080}
@@ -732,8 +732,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 624246281}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -12.617, y: 0.129, z: 0}
-  m_LocalScale: {x: 10.052004, y: 0.6219527, z: 0}
+  m_LocalPosition: {x: -12.96, y: 0.129, z: 0}
+  m_LocalScale: {x: 10.052004, y: 0.6775483, z: 0}
   m_Children: []
   m_Father: {fileID: 2009040080}
   m_RootOrder: 2
@@ -840,7 +840,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 996787793}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 4.7200003, y: 0.09, z: 0}
+  m_LocalPosition: {x: 4.87, y: 0.09, z: 0}
   m_LocalScale: {x: 10.088528, y: 0.6009688, z: 0}
   m_Children: []
   m_Father: {fileID: 2009040080}
@@ -1124,8 +1124,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1129404853}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.048, y: -4.717, z: 0}
-  m_LocalScale: {x: 17.40562, y: 0.47848788, z: 0}
+  m_LocalPosition: {x: -4.028, y: -4.98, z: 0}
+  m_LocalScale: {x: 18.04905, y: 0.47848788, z: 0}
   m_Children: []
   m_Father: {fileID: 2009040080}
   m_RootOrder: 3
@@ -1480,7 +1480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d754c5af9825364082c8962412b125e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.04
+  speed: 0.1
   arr: {fileID: 507760568}
   vec:
   - 0
@@ -1585,7 +1585,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!1 &1727854943
 GameObject:
@@ -1680,7 +1680,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.54401034, g: 0.64176023, b: 0.7075472, a: 0}
+  m_BackGroundColor: {r: 0.36862746, g: 0.5294118, b: 0.54901963, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1798,8 +1798,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 190}
-  m_SizeDelta: {x: 50, y: 50}
+  m_AnchoredPosition: {x: -2.78, y: 198.6}
+  m_SizeDelta: {x: 45, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2009040079
 GameObject:
@@ -1973,3 +1973,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   time: 60
   text: {fileID: 2090131301}
+  exp_L: {fileID: 35615635}
+  exp_R: {fileID: 1429165244}
