@@ -263,6 +263,7 @@ MonoBehaviour:
         type: 3}
       position:
       - {x: 3, y: -3}
+      - {x: 3, y: -3}
     - obstacle: {fileID: 6395295460505161966, guid: e87377c3077fa3147bf68d84b7228c09,
         type: 3}
       position:

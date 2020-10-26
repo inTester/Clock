@@ -31,14 +31,15 @@ public class ObstacleManager : MonoBehaviour
     List<ObstacleSetData> obstacleSetDatas = new List<ObstacleSetData>();
 
     //使用中の障害物
-    float startTime = 0;
+    float startTime = -1;
     const int MAX_TIME = 4; //障害物変更時間　20秒
-    int index = 0;
-    List<Obstacle> nowObstacles = new List<Obstacle>();
+    List<Obstacle> nowObstaclesOb = new List<Obstacle>();
+    ObstacleSetData nowobstacleData = default;
+    bool endF = false;
 
     //ステータス
     enum State
-    { NONE, SELECT, CREATE, MOVE, DESTRY }
+    { NONE, SELECT, CREATE, MOVE, DESTRY, END }
     State state;
 
     void Start()
@@ -58,7 +59,12 @@ public class ObstacleManager : MonoBehaviour
                 break;
 
             case State.CREATE:
-                Create(); //障害物の生成
+                //障害物の生成
+                if (!Create()) //無ければendへ
+                {
+                    state = State.END;
+                    break;
+                }
                 TimeStart(); //生成時間の記録
                 state = State.SELECT;
                 break;
@@ -77,12 +83,16 @@ public class ObstacleManager : MonoBehaviour
                 break;
 
             case State.DESTRY:
-                foreach (Obstacle cs in nowObstacles)
+                foreach (Obstacle cs in nowObstaclesOb)
                 {
                     cs.EndAnimation(); //アニメーション実行&削除
                 }
-                nowObstacles.Clear(); //リスト初期化
+                nowObstaclesOb.Clear(); //リスト初期化
                 state = State.CREATE;
+                break;
+
+            case State.END:
+                Debug.Log("end");
                 break;
         }
     }
@@ -90,28 +100,44 @@ public class ObstacleManager : MonoBehaviour
 
     void RandomSelect()
     {
-        //ランダムで障害物を選ぶ
-        index = Random.Range(0, obstacleSetDatas.Count);
-        //予測画像を表示
-        nextImage.sprite = obstacleSetDatas[index].sprite;
-    }
-    void Create()
-    {
-        //決まった座標に生成
-        for (int d = 0; d < obstacleSetDatas[index].obstacleData.Length; d++)
+        if (obstacleSetDatas.Count <= 0)
         {
-            for (int p = 0; p < obstacleSetDatas[index].obstacleData[d].position.Length; p++)
+            nowobstacleData = default;
+            endF = true;
+            return;
+        }
+
+        //ランダムで障害物を選ぶ
+        int nextindex = Random.Range(0, obstacleSetDatas.Count);
+        //予測画像を表示
+        nextImage.sprite = obstacleSetDatas[nextindex].sprite;
+        //保存し、候補から削除
+        nowobstacleData = obstacleSetDatas[nextindex];
+        obstacleSetDatas.RemoveAt(nextindex);
+    }
+    bool Create()
+    {
+        if (endF)
+        {
+            return false;
+        }
+
+        //決まった座標に生成
+        for (int d = 0; d < nowobstacleData.obstacleData.Length; d++)
+        {
+            for (int p = 0; p < nowobstacleData.obstacleData[d].position.Length; p++)
             {
                 //一旦変数化
-                var data = obstacleSetDatas[index].obstacleData[d];
+                var data = nowobstacleData.obstacleData[d];
                 //生成
                 GameObject g = Instantiate(data.obstacle,
                                            data.position[p],
                                            Quaternion.identity);
                 //スクリプト保存
-                nowObstacles.Add(g.GetComponent<Obstacle>());
+                nowObstaclesOb.Add(g.GetComponent<Obstacle>());
             }
         }
+        return true;
     }
 
 
