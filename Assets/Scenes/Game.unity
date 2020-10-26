@@ -382,6 +382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextImage: {fileID: 1939075065}
+  MAX_TIME: 20
   obstacleSetDatas:
   - obstacleData:
     - obstacle: {fileID: 6395295460505161966, guid: e87377c3077fa3147bf68d84b7228c09,
@@ -401,12 +402,24 @@ MonoBehaviour:
     - obstacle: {fileID: 4987505281469270260, guid: 975acae1079b53842a2c2b4ef0892c98,
         type: 3}
       position:
-      - {x: 3, y: -3}
+      - {x: 0, y: -3}
     - obstacle: {fileID: 6395295460505161966, guid: e87377c3077fa3147bf68d84b7228c09,
         type: 3}
       position:
       - {x: 0, y: 3}
     sprite: {fileID: 21300000, guid: b2d9106a1026149498170a4776656e41, type: 3}
+  - obstacleData:
+    - obstacle: {fileID: 6395295460505161966, guid: e87377c3077fa3147bf68d84b7228c09,
+        type: 3}
+      position:
+      - {x: 0, y: 0}
+    sprite: {fileID: 21300000, guid: 071e07b00fabbbb45a697583b891019f, type: 3}
+  - obstacleData:
+    - obstacle: {fileID: 4987505281469270260, guid: 975acae1079b53842a2c2b4ef0892c98,
+        type: 3}
+      position:
+      - {x: 0, y: 0}
+    sprite: {fileID: 21300000, guid: 7fcc6ebcb03cda340931d52d1ee26edd, type: 3}
 --- !u!4 &491496561
 Transform:
   m_ObjectHideFlags: 0
@@ -1958,5 +1971,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae32e55cc6dfc224787110d8e31523e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 80
+  time: 60
   text: {fileID: 2090131301}
