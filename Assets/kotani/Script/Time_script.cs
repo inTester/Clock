@@ -12,27 +12,27 @@ public class Time_script : MonoBehaviour
     [SerializeField] ExplosionCount_script exp_L;
     [SerializeField] ExplosionCount_script exp_R;
 
-    private int count;
+    private int startTime; //開始時間
 
     // Start is called before the first frame update
     void Start()
     {
         Application.targetFrameRate = 60;
-        count = time;
+        startTime = (int)Time.time;
     }
 
     // Update is called once per frame
     void Update()
     {
+        int nowTime = (int)(Time.time - startTime); //経過時間 
+        text.text = (time - nowTime).ToString(); //経過時間から制限時間をひく、
+
         //ゲーム終了
-        if (count <= 0)
+        if ((time - nowTime) <= 0)
         {
             SceneManager.sceneLoaded += GameSceneLoaded;
             SceneManager.LoadScene("Result");    // シーン切り替え
         }
-
-        count = (int)(time - Time.time);
-        text.text = count.ToString();
     }
 
     private void GameSceneLoaded(Scene next, LoadSceneMode mode)
