@@ -24,11 +24,11 @@ public class Time_script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int nowTime = (int)(Time.time - startTime); //経過時間 
-        text.text = (time - nowTime).ToString(); //経過時間から制限時間をひく、
+        int elapsedTime = (int)(Time.time - startTime); //経過時間 
+        text.text = (time - elapsedTime).ToString(); //経過時間から制限時間をひく、
 
         //ゲーム終了
-        if ((time - nowTime) <= 0)
+        if ((time - elapsedTime) <= 0)
         {
             SceneManager.sceneLoaded += GameSceneLoaded;
             SceneManager.LoadScene("Result");    // シーン切り替え

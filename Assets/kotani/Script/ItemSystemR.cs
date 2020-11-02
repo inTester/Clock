@@ -8,6 +8,8 @@ public class ItemSystemR : MonoBehaviour
     [SerializeField] float X = default, Y = default;//基準座標
     [SerializeField] float scal = default;//拡縮比
 
+    bool nowSelect;
+
     private int cursorNum;//選択番号
     private int count;
     GameObject cursorObj;
@@ -17,6 +19,7 @@ public class ItemSystemR : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        nowSelect = false;
         cursorObj = cursor;
         cursorNum = 0;
         count = 0;
@@ -46,7 +49,8 @@ public class ItemSystemR : MonoBehaviour
                 SetCount(-1);
             }
         }
-        Select();
+        SelectFlag();
+        if (!nowSelect) { Select(); }
         Push();
     }
     public void PickUp(GameObject obj)//アイテム追加
@@ -54,20 +58,24 @@ public class ItemSystemR : MonoBehaviour
         SetCount(1);
         bombs.Add(obj);
     }
+    void SelectFlag()
+    {
+        if ((int)Input.GetAxis("CrossKey_1") == 0) { nowSelect = false; }
+    }
     void Select()//アイテム選択
     {
-        //一旦仮置き
-        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.A))
+        if (Input.GetAxis("CrossKey_1") >= 1.00f || Input.GetAxis("CrossKey_1") <= -1.00f)
         {
-            if (Input.GetKeyDown(KeyCode.D) && cursorNum > 0) { cursorNum--; }
-            if (Input.GetKeyDown(KeyCode.A) && cursorNum < 4) { cursorNum++; }
+            if (Input.GetAxis("CrossKey_1") >= 1.00f && cursorNum > 0) { cursorNum--; }
+            if (Input.GetAxis("CrossKey_1") <= -1.00f && cursorNum < 4) { cursorNum++; }
+            nowSelect = true;
         }
         float x = X - ((scal * 2) * cursorNum);
         cursorObj.GetComponent<Transform>().position = new Vector3(x, Y, 0);
     }
     public void Push()//アイテム引き出し
     {
-        if (Input.GetKeyDown(KeyCode.Space) && bombs.Count > 0 && (bombs[cursorNum] != null))
+        if (Input.GetAxis("LR_T_1") <= -1.00f && bombs.Count > 0 && (bombs[cursorNum] != null))
         {
             //所持アイテム数カウント
             SetCount(-1);
