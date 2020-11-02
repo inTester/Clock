@@ -6,8 +6,11 @@ public class Bomb_script : MonoBehaviour
 {
     [SerializeField] private float Limit = default;//爆発までの総時間(秒)
     [SerializeField] private float power = default;//押し出される力
+    [SerializeField] AudioClip soundSE = default;//発射音
+    AudioSource audioSource;
 
     private bool fly;//投げられたか
+    private bool item;//アイテム化したか
     private float bornTime;//生成時の時間
     private float limitTime;//爆発までの時間
 
@@ -16,13 +19,19 @@ public class Bomb_script : MonoBehaviour
 
     bool refrect;
 
+    int i = 0;
+
+    public void SetItem(bool f) { item = f; }
+
     // Start is called before the first frame update
     void Start()
     {
         bornTime = Time.time;
         fly = false;
+        item = false;
         g = 1.0f;
         refrect = false;
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -62,8 +71,16 @@ public class Bomb_script : MonoBehaviour
             //positionに爆発エフェクト生成
             Effect();
             //左右どちらのエリアで爆発したか
-            if (this.transform.position.x >= 0) { ExplosionR(1); }
-            else if(this.transform.position.x <= 0) { ExplosionL(1); }
+            if (this.transform.position.x >= 0)
+            {
+                if (item) { ExplosionR(3); }
+                else { ExplosionR(1); }
+            }
+            else if (this.transform.position.x <= 0)
+            {
+                if (item) { ExplosionL(3); }
+                else { ExplosionL(1); }
+            }
         }
     }
 
@@ -80,24 +97,56 @@ public class Bomb_script : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            if(Input.GetKey("joystick 1 button 5") || Input.GetKeyDown("joystick 2 button 5"))
+            if(Input.GetKeyDown("joystick 1 button 5") || Input.GetKeyDown("joystick 2 button 5"))
             {
-                //ボタン入力で飛ぶ
-                fly = true;
-                //入力を受けた相手の方向取得
-                if (Input.GetKey("joystick 1 button 5"))
+                Fly(collision);
+            }
+            else
+            {
+                if (Input.GetKey("joystick 1 button 4"))
                 {
-                    GameObject obj = GameObject.Find("Player_1");
-                    x = obj.GetComponent<player_script>().vec[1];
-                    y = obj.GetComponent<player_script>().vec[0];
+                    GameObject obj = GameObject.Find("Item_system_R");
+                    if (obj.GetComponent<ItemSystemR>().Flag())
+                    {
+                        //ボムをアイテム化
+                        SetItem(true);
+                        //ボムオブジェクトをアイテムリストに追加
+                        obj.GetComponent<ItemSystemR>().PickUp(this.gameObject);
+                    }
                 }
-                if (Input.GetKey("joystick 2 button 5"))
+                if (Input.GetKey("joystick 2 button 4"))
                 {
-                    GameObject obj = GameObject.Find("Player_2");
-                    x = obj.GetComponent<player_2_script>().vec[1];
-                    y = obj.GetComponent<player_2_script>().vec[0];
+                    GameObject obj = GameObject.Find("Item_system_L");
+                    if (obj.GetComponent<ItemSystemL>().Flag())
+                    {
+                        //ボムをアイテム化
+                        SetItem(true);
+                        //ボムオブジェクトをアイテムリストに追加
+                        obj.GetComponent<ItemSystemL>().PickUp(this.gameObject);
+                    }
                 }
             }
+        }
+    }
+    void Fly(Collision2D collision)
+    {
+        i++;
+        Debug.Log(i);
+        //ボタン入力で飛ぶ
+        fly = true;
+        audioSource.PlayOneShot(soundSE);
+        //入力を受けた相手の方向取得
+        if (Input.GetKey("joystick 1 button 5"))
+        {
+            GameObject obj = GameObject.Find("Player_1");
+            x = obj.GetComponent<player_script>().vec[1];
+            y = obj.GetComponent<player_script>().vec[0];
+        }
+        if (Input.GetKey("joystick 2 button 5"))
+        {
+            GameObject obj = GameObject.Find("Player_2");
+            x = obj.GetComponent<player_2_script>().vec[1];
+            y = obj.GetComponent<player_2_script>().vec[0];
         }
     }
     void Move()
