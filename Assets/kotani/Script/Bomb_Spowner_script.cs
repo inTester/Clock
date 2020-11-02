@@ -15,6 +15,7 @@ public class Bomb_Spowner_script : MonoBehaviour
     void Start()
     {
         bornTime = Time.time;
+        Application.targetFrameRate = 60;
     }
 
     // Update is called once per frame
