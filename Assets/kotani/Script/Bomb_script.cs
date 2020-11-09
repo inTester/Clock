@@ -79,40 +79,54 @@ public class Bomb_script : MonoBehaviour
     }
 
     //当たり判定↓
-    void OnCollisionStay2D(Collision2D collision)
+    void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "reflect")
         {
-            if (Input.GetKey("joystick 1 button 5") || Input.GetKeyDown("joystick 2 button 5"))
+            if (Input.GetKey("joystick 1 button 0") || Input.GetKey("joystick 1 button 3") || Input.GetKey("joystick 1 button 2")
+             || Input.GetKey("joystick 2 button 0") || Input.GetKey("joystick 2 button 3") || Input.GetKey("joystick 2 button 1"))
             {
                 //ボタン入力で飛ぶ
                 fly = true;
                 audioSource.PlayOneShot(soundSE);
-                //入力を受けた相手の方向取得
-                if (Input.GetKey("joystick 1 button 5"))
+                //ボタンで方向を決める
+                if (Input.GetKey("joystick 1 button 0"))
                 {
-                    GameObject obj = GameObject.Find("Player_1");
-                    x = obj.GetComponent<player_script>().vec[1];
-                    y = obj.GetComponent<player_script>().vec[0];
+                    GetComponent<Rigidbody2D>().AddForce(new Vector3(-0.5f, -0.5f) * power);
                 }
-                if (Input.GetKey("joystick 2 button 5"))
+                if (Input.GetKey("joystick 1 button 3"))
                 {
-                    GameObject obj = GameObject.Find("Player_2");
-                    x = obj.GetComponent<player_2_script>().vec[1];
-                    y = obj.GetComponent<player_2_script>().vec[0];
+                    GetComponent<Rigidbody2D>().AddForce(new Vector3(-0.5f, 0.5f) * power);
+                }
+                if (Input.GetKey("joystick 1 button 2"))
+                {
+                    GetComponent<Rigidbody2D>().AddForce(new Vector3(-1f, 0f) * power);
+                }
+
+                if (Input.GetKey("joystick 2 button 0"))
+                {
+                    GetComponent<Rigidbody2D>().AddForce(new Vector3(0.5f, -0.5f) * power);
+                }
+                if (Input.GetKey("joystick 2 button 3"))
+                {
+                    GetComponent<Rigidbody2D>().AddForce(new Vector3(0.5f, 0.5f) * power);
+                }
+                if (Input.GetKey("joystick 2 button 1"))
+                {
+                    GetComponent<Rigidbody2D>().AddForce(new Vector3(1f, 0f) * power);
                 }
             }
         }
     }
     void Move()
     {
-        //爆弾が何かにぶつかるまで力を加算
-        if (!refrect)
-        {
-            GetComponent<Rigidbody2D>().AddForce(new Vector3(x * power, -y * power, 0));
-        }
+        ////爆弾が何かにぶつかるまで力を加算
+        //if (!refrect)
+        //{
+        //    GetComponent<Rigidbody2D>().AddForce(new Vector3(x * power, -y * power, 0));
+        //}
     }
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         //飛んでる最中プレイヤーとの接触で爆発
         if (collision.gameObject.tag == "Player")
