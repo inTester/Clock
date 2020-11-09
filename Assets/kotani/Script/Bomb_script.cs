@@ -83,39 +83,52 @@ public class Bomb_script : MonoBehaviour
     {
         if (collision.gameObject.tag == "reflect")
         {
-            if (Input.GetKey("joystick 1 button 0") || Input.GetKey("joystick 1 button 3") || Input.GetKey("joystick 1 button 2")
-             || Input.GetKey("joystick 2 button 0") || Input.GetKey("joystick 2 button 3") || Input.GetKey("joystick 2 button 1"))
+            //プレイヤー１だったら
+            if (collision.gameObject.name == "reflectArea_1")
             {
-                //ボタン入力で飛ぶ
-                fly = true;
-                audioSource.PlayOneShot(soundSE);
-                //ボタンで方向を決める
-                if (Input.GetKey("joystick 1 button 0"))
+                if (Input.GetKey("joystick 1 button 0") || Input.GetKey("joystick 1 button 3") || Input.GetKey("joystick 1 button 2"))
                 {
-                    GetComponent<Rigidbody2D>().AddForce(new Vector3(-0.5f, -0.5f) * power);
-                }
-                if (Input.GetKey("joystick 1 button 3"))
-                {
-                    GetComponent<Rigidbody2D>().AddForce(new Vector3(-0.5f, 0.5f) * power);
-                }
-                if (Input.GetKey("joystick 1 button 2"))
-                {
-                    GetComponent<Rigidbody2D>().AddForce(new Vector3(-1f, 0f) * power);
-                }
-
-                if (Input.GetKey("joystick 2 button 0"))
-                {
-                    GetComponent<Rigidbody2D>().AddForce(new Vector3(0.5f, -0.5f) * power);
-                }
-                if (Input.GetKey("joystick 2 button 3"))
-                {
-                    GetComponent<Rigidbody2D>().AddForce(new Vector3(0.5f, 0.5f) * power);
-                }
-                if (Input.GetKey("joystick 2 button 1"))
-                {
-                    GetComponent<Rigidbody2D>().AddForce(new Vector3(1f, 0f) * power);
+                    //ボタン入力で飛ぶ
+                    fly = true;
+                    audioSource.PlayOneShot(soundSE);
+                    //ボタンで方向を決める
+                    if (Input.GetKey("joystick 1 button 0"))
+                    {
+                        GetComponent<Rigidbody2D>().AddForce(new Vector3(-0.5f, -0.5f) * power);
+                    }
+                    if (Input.GetKey("joystick 1 button 3"))
+                    {
+                        GetComponent<Rigidbody2D>().AddForce(new Vector3(-0.5f, 0.5f) * power);
+                    }
+                    if (Input.GetKey("joystick 1 button 2"))
+                    {
+                        GetComponent<Rigidbody2D>().AddForce(new Vector3(-1f, 0f) * power);
+                    }
                 }
             }
+
+            //プレイヤー２だったら
+            if (collision.gameObject.name == "reflectArea_2")
+            {
+                if (Input.GetKey("joystick 2 button 0") || Input.GetKey("joystick 2 button 3") || Input.GetKey("joystick 2 button 1"))
+                {
+
+
+                    if (Input.GetKey("joystick 2 button 0"))
+                    {
+                        GetComponent<Rigidbody2D>().AddForce(new Vector3(0.5f, -0.5f) * power);
+                    }
+                    if (Input.GetKey("joystick 2 button 3"))
+                    {
+                        GetComponent<Rigidbody2D>().AddForce(new Vector3(0.5f, 0.5f) * power);
+                    }
+                    if (Input.GetKey("joystick 2 button 1"))
+                    {
+                        GetComponent<Rigidbody2D>().AddForce(new Vector3(1f, 0f) * power);
+                    }
+                }
+            }
+
         }
     }
     void Move()
