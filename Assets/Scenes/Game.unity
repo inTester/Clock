@@ -2117,6 +2117,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obj: {fileID: 3355586813565946232, guid: 6d56c3c9ca062eb4cbf9294e77cc4534, type: 3}
   interval: 5
+  X: 7
+  Y: 4
 --- !u!4 &2076398243
 Transform:
   m_ObjectHideFlags: 0

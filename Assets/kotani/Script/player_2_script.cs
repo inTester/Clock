@@ -23,7 +23,13 @@ public class player_2_script : MonoBehaviour
     {
         //プレイヤーの移動
         Vector3 position = this.transform.position;
-        position += new Vector3(Input.GetAxis("Horizontal_2"), Input.GetAxis("Vertical_2"), 0) * speed;
+
+        if(position.x + GetComponent<Transform>().localScale.x/2 + Input.GetAxis("Horizontal_2") * speed < 0)
+        {
+            position.x += Input.GetAxis("Horizontal_2") * speed;
+        }
+        else { position.x = -GetComponent<Transform>().localScale.x / 2; }
+        position.y += Input.GetAxis("Vertical_2") * speed;
         this.transform.position = position;
 
         ////画像の回転

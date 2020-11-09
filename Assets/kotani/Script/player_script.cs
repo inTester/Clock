@@ -25,7 +25,12 @@ public class player_script : MonoBehaviour
 
         //プレイヤーの移動
         Vector3 position = this.transform.position;
-        position += new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0) * speed;
+        if(position.x - GetComponent<Transform>().localScale.x / 2 + Input.GetAxis("Horizontal") * speed > 0)
+        {
+            position.x += Input.GetAxis("Horizontal") * speed;
+        }
+        else { position.x = GetComponent<Transform>().localScale.x / 2; }
+        position.y += Input.GetAxis("Vertical") * speed;
         this.transform.position = position;
 
         ////画像の回転

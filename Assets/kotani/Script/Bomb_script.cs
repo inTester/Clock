@@ -65,8 +65,8 @@ public class Bomb_script : MonoBehaviour
             //positionに爆発エフェクト生成
             Effect();
             //左右どちらのエリアで爆発したか
-            if (this.transform.position.x >= 0) { ExplosionR(1); }
-            else if (this.transform.position.x <= 0) { ExplosionL(1); }
+            if (this.transform.position.x >= 0) { ExplosionL(1); }
+            else if (this.transform.position.x <= 0) { ExplosionR(1); }
         }
     }
 
@@ -128,7 +128,7 @@ public class Bomb_script : MonoBehaviour
                     //player爆発で移動しない
                     player_1.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
                     //点数加算
-                    ExplosionR(1);
+                    ExplosionL(1);
                 }
                 else
                 {
@@ -138,7 +138,7 @@ public class Bomb_script : MonoBehaviour
                     //player爆発で移動しない
                     player_2.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
                     //点数加算
-                    ExplosionL(1);
+                    ExplosionR(1);
                 }
             }
         }
