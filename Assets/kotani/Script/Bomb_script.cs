@@ -92,15 +92,15 @@ public class Bomb_script : MonoBehaviour
                     fly = true;
                     audioSource.PlayOneShot(soundSE);
                     //ボタンで方向を決める
-                    if (Input.GetKey("joystick 1 button 0"))
+                    if (Input.GetKeyDown("joystick 1 button 0"))
                     {
                         GetComponent<Rigidbody2D>().AddForce(new Vector3(-0.5f, -0.5f) * power);
                     }
-                    if (Input.GetKey("joystick 1 button 3"))
+                    if (Input.GetKeyDown("joystick 1 button 3"))
                     {
                         GetComponent<Rigidbody2D>().AddForce(new Vector3(-0.5f, 0.5f) * power);
                     }
-                    if (Input.GetKey("joystick 1 button 2"))
+                    if (Input.GetKeyDown("joystick 1 button 2"))
                     {
                         GetComponent<Rigidbody2D>().AddForce(new Vector3(-1f, 0f) * power);
                     }
@@ -114,15 +114,15 @@ public class Bomb_script : MonoBehaviour
                 {
 
 
-                    if (Input.GetKey("joystick 2 button 0"))
+                    if (Input.GetKeyDown("joystick 2 button 0"))
                     {
                         GetComponent<Rigidbody2D>().AddForce(new Vector3(0.5f, -0.5f) * power);
                     }
-                    if (Input.GetKey("joystick 2 button 3"))
+                    if (Input.GetKeyDown("joystick 2 button 3"))
                     {
                         GetComponent<Rigidbody2D>().AddForce(new Vector3(0.5f, 0.5f) * power);
                     }
-                    if (Input.GetKey("joystick 2 button 1"))
+                    if (Input.GetKeyDown("joystick 2 button 1"))
                     {
                         GetComponent<Rigidbody2D>().AddForce(new Vector3(1f, 0f) * power);
                     }
