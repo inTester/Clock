@@ -40,6 +40,9 @@ public class Bomb_script : MonoBehaviour
         //Rのスコア加算
         GameObject obj = GameObject.Find("ExplosionCountR");
         obj.GetComponent<ExplosionCount_script>().AddCount(i);
+        //爆弾生成方向設定
+        GameObject obj2 = GameObject.Find("Bomb_Spowner");
+        obj2.GetComponent<Bomb_Spowner_script>().SetDir('L');
         //爆弾消去
         Destroy(this.gameObject);
     }
@@ -48,6 +51,9 @@ public class Bomb_script : MonoBehaviour
         //Rのスコア加算
         GameObject obj = GameObject.Find("ExplosionCountL");
         obj.GetComponent<ExplosionCount_script>().AddCount(i);
+        //爆弾生成方向設定
+        GameObject obj2 = GameObject.Find("Bomb_Spowner");
+        obj2.GetComponent<Bomb_Spowner_script>().SetDir('R');
         //爆弾消去
         Destroy(this.gameObject);
     }

@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c512f4c3af03dd949bb1fe2a01611e15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Limit: 4
+  Limit: 6
   power: 800
   soundSE: {fileID: 8300000, guid: 7f6ce7fcec1f39d4483adbc0f3d0a028, type: 3}
 --- !u!58 &3355586813565946234
