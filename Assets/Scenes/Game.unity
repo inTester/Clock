@@ -683,7 +683,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11460108, guid: fd9d58dbfb8f846f58b62a48334a0058, type: 3}
       propertyPath: DebugMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd9d58dbfb8f846f58b62a48334a0058, type: 3}
@@ -1062,6 +1062,9 @@ MonoBehaviour:
         type: 3}
       position:
       - {x: 0, y: -3}
+    - obstacle: {fileID: 3150573459566217707, guid: c4f4f206f2211e54181383fd13495809,
+        type: 3}
+      position:
       - {x: 0, y: 3}
     sprite: {fileID: 21300000, guid: 071e07b00fabbbb45a697583b891019f, type: 3}
   - obstacleData:
@@ -1076,7 +1079,7 @@ MonoBehaviour:
         type: 3}
       position:
       - {x: 0, y: -3}
-    - obstacle: {fileID: 6395295460505161966, guid: e87377c3077fa3147bf68d84b7228c09,
+    - obstacle: {fileID: 3150573459566217707, guid: c4f4f206f2211e54181383fd13495809,
         type: 3}
       position:
       - {x: 0, y: 3}
@@ -3201,7 +3204,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 097b109c3fcbf2e4d9ce23683ac1b4a6, type: 3}
   m_Color: {r: 1, g: 0, b: 0.5105519, a: 1}
   m_FlipX: 0
