@@ -3339,7 +3339,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 96899b7a751b29b4694d62285058cb73, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.06
+  m_Volume: 0.526
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -4090,10 +4090,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae32e55cc6dfc224787110d8e31523e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 3
+  time: 60
   text: {fileID: 2090131301}
   exp_L: {fileID: 35615635}
   exp_R: {fileID: 1429165244}
-  particle: {fileID: 3490130612323358321, guid: 555e8bf75e6d8214ea5cfc540c4b8ed1,
-    type: 3}
   obj: {fileID: 839450339}
