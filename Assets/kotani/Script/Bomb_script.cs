@@ -31,6 +31,7 @@ public class Bomb_script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameObject.Find("Timer").GetComponent<Time_script>().timeLimit <= 0) { Destroy(this.gameObject); }
         Move();
         Bomb();
         ColorChange();

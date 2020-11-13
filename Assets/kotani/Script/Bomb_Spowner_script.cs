@@ -23,7 +23,7 @@ public class Bomb_Spowner_script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GameObject.Find("Bomb(Clone)") == null && flag)
+        if(GameObject.Find("Bomb(Clone)") == null && flag && GameObject.Find("Timer").GetComponent<Time_script>().timeLimit > 0)
         {
             if (dir == 'R')
             {
