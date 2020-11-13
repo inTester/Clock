@@ -21,34 +21,34 @@ public class ButtonCheck : MonoBehaviour
         switch (mode)
         {
             case Mode.RIGHT:
-                if (Input.GetKey("joystick 1 button 3"))
+                if (Input.GetKey("joystick 1 button 3") || Input.GetKey(KeyCode.U))
                 { yButton.color = Color.white; }
                 else
                 { yButton.color = Color.gray; }
 
-                if (Input.GetKey("joystick 1 button 2"))
+                if (Input.GetKey("joystick 1 button 2") || Input.GetKey(KeyCode.H))
                 { xButton.color = Color.white; }
                 else
                 { xButton.color = Color.gray; }
 
-                if (Input.GetKey("joystick 1 button 0"))
+                if (Input.GetKey("joystick 1 button 0") || Input.GetKey(KeyCode.B))
                 { aButton.color = Color.white; }
                 else
                 { aButton.color = Color.gray; }
                 break;
 
             case Mode.LEFT:
-                if (Input.GetKey("joystick 2 button 3"))
+                if (Input.GetKey("joystick 2 button 3") || Input.GetKey(KeyCode.R))
                 { yButton.color = Color.white; }
                 else
                 { yButton.color = Color.gray; }
 
-                if (Input.GetKey("joystick 2 button 1"))
+                if (Input.GetKey("joystick 2 button 1") || Input.GetKey(KeyCode.F))
                 { bButton.color = Color.white; }
                 else
                 { bButton.color = Color.gray; }
 
-                if (Input.GetKey("joystick 2 button 0"))
+                if (Input.GetKey("joystick 2 button 0") || Input.GetKey(KeyCode.V))
                 { aButton.color = Color.white; }
                 else
                 { aButton.color = Color.gray; }

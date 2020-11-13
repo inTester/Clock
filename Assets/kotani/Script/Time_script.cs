@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class Time_script : MonoBehaviour
 {
+    [SerializeField] bool tutoF = false;
+
     [SerializeField] private int time = default;  //制限時間
     [SerializeField] private Text text = default; //制限時間のテキスト
 
@@ -31,6 +33,9 @@ public class Time_script : MonoBehaviour
         flag = false;
         startFlag = false;
         text.text = "";
+        if (tutoF)
+        { text.text = "60"; }
+
     }
     public void SetStartFlag()
     {
@@ -40,7 +45,7 @@ public class Time_script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (startFlag)
+        if (startFlag && !tutoF)
         {
             SetTime(); //時間経過の表示
                        //ゲーム終了

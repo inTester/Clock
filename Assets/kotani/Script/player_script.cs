@@ -31,17 +31,22 @@ public class player_script : MonoBehaviour
         }
         else { position.x = GetComponent<Transform>().localScale.x / 2; }
         position.y += Input.GetAxis("Vertical") * speed;
+        
+        //キーボード対応↓
+        if (Input.GetKey(KeyCode.J) || Input.GetKey(KeyCode.L))
+        {
+            float dir = 1;
+            if (Input.GetKey(KeyCode.J)) { dir = -1; }
+            if (position.x + GetComponent<Transform>().localScale.x / 2 + dir * speed > 0) { position.x += dir * speed; }
+            else { position.x = GetComponent<Transform>().localScale.x / 2; }
+        }
+        if (Input.GetKey(KeyCode.I) || Input.GetKey(KeyCode.K))
+        {
+            float dir = 1;
+            if (Input.GetKey(KeyCode.K)) { dir = -1; }
+            position.y += dir * speed;
+        }
+
         this.transform.position = position;
-
-        //////画像の回転
-        //if(Input.GetAxis("Vertical2") >= 1.00f || Input.GetAxis("Vertical2") <= -1.00f || 
-        //    Input.GetAxis("Horizontal2") >= 1.00f || Input.GetAxis("Horizontal2") <= -1.00f)
-        //{
-        //    vec[0] = -Input.GetAxis("Vertical2");
-        //    vec[1] = Input.GetAxis("Horizontal2");
-
-        //    float angle = -Mathf.Atan2(-Input.GetAxis("Vertical2"), Input.GetAxis("Horizontal2")) * Mathf.Rad2Deg;
-        //    arr.transform.rotation = Quaternion.Euler(0, 0, angle);
-        //}
     }
 }
