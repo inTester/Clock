@@ -53,6 +53,8 @@ public class ObstacleManager : MonoBehaviour
 
     void Update()
     {
+        if (startCount.end)
+        { state = State.DESTRY; }
 
         switch (state)
         {
@@ -92,6 +94,8 @@ public class ObstacleManager : MonoBehaviour
                 }
                 nowObstaclesOb.Clear(); //リスト初期化
                 state = State.CREATE;
+                if (startCount.end)
+                { state = State.END; }
                 break;
 
             case State.END:

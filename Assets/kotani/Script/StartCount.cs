@@ -8,14 +8,15 @@ public class StartCount : MonoBehaviour
     [SerializeField] private Text text;
     private int startTime;
     public bool flag { get; private set; }
-
+    public bool end { get; private set; }
     // Start is called before the first frame update
     void Start()
     {
+        text.fontSize = 200;
         gameObject.SetActive(true);
-
         startTime = (int)Time.time;
         flag = false;
+        end = false;
     }
 
     // Update is called once per frame
@@ -23,13 +24,25 @@ public class StartCount : MonoBehaviour
     {
         //カウント3秒
         int time = 3 - (int)(Time.time - startTime);
-        text.text = time.ToString();
-        if (time <= 0 && !flag)
+        
+        if (time == 0)
         {
-            flag = true;
-            gameObject.SetActive(false);
-            GameObject.Find("Bomb_Spowner").GetComponent<Bomb_Spowner_script>().SetStart();
-            GameObject.Find("Timer").GetComponent<Time_script>().SetStartFlag();
+            text.text = "GO!";
+            if (!flag)
+            {
+                flag = true;
+                GameObject.Find("Bomb_Spowner").GetComponent<Bomb_Spowner_script>().SetStart();
+                GameObject.Find("Timer").GetComponent<Time_script>().SetStartFlag();
+            }
         }
+        else if(!end) { text.text = time.ToString(); }
+        if(time < 0 && !end) { gameObject.SetActive(false); }
+    }
+    public void End()
+    {
+        end = true;
+        text.fontSize = 100;
+        gameObject.SetActive(true);
+        text.text = "TIME UP!";
     }
 }

@@ -12,21 +12,25 @@ public class Time_script : MonoBehaviour
     [SerializeField] ExplosionCount_script exp_L;
     [SerializeField] ExplosionCount_script exp_R;
 
+    //[SerializeField] GameObject particle;
+    [SerializeField] GameObject obj;
+
     private int startTime; //開始時間
-    bool flag;
+    public bool flag { get; private set; }
     bool startFlag;
     public int timeLimit { get; private set; } //残り時間
+    int timeLimitPre;
 
     // Start is called before the first frame update
     void Start()
     {
         Application.targetFrameRate = 60;
         startTime = (int)Time.time;
-        text.text = "";
 
         SetTime(); //時間経過の表示
         flag = false;
         startFlag = false;
+        text.text = "";
     }
     public void SetStartFlag()
     {
@@ -40,14 +44,22 @@ public class Time_script : MonoBehaviour
         {
             SetTime(); //時間経過の表示
                        //ゲーム終了
-            if ((timeLimit) <= 0 && !flag)
+            if ((timeLimit) <= 0)
             {
-                //SceneManager.sceneLoaded += GameSceneLoaded;
-                //SceneManager.LoadScene("Result");    // シーン切り替え
-                flag = true;
-                FadeManager.Instance.LoadScene("Result", 2.0f);
+                obj.GetComponent<StartCount>().End();
+                if (timeLimit != timeLimitPre) { for (int i = 0; i < 8; i++) { /*Instantiate(particle, new Vector3(Random.Range(-7.0f, 7.0f), Random.Range(-4.0f, 4.0f), 0), Quaternion.identity); */} }
+                if (timeLimit <= -2)
+                {
+                    if (!flag)
+                    {
+                        SceneManager.sceneLoaded += GameSceneLoaded;
+                        FadeManager.Instance.LoadScene("Result", 0.2f);
+                    }
+                    flag = true;
+                }
             }
         }
+        timeLimitPre = timeLimit;
     }
 
     //時間経過の表示
@@ -56,7 +68,10 @@ public class Time_script : MonoBehaviour
         int elapsedTime = (int)(Time.time - startTime); //経過時間 
         timeLimit = time - elapsedTime; //経過時間から制限時間をひく、
         //時間描画
-        if (timeLimit <= 0) { text.text = 0.ToString(); }
+        if (timeLimit <= 0)
+        {
+            text.text = "";
+        }
         else { text.text = timeLimit.ToString(); }
     }
 
