@@ -85,6 +85,11 @@ public class Bomb_script : MonoBehaviour
     }
 
     //当たり判定↓
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        //爆弾が離れたら当たり判定を始める
+        if(collision.gameObject.tag == "reflect") { refrect = true; }
+    }
     void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "reflect")
@@ -113,10 +118,10 @@ public class Bomb_script : MonoBehaviour
                     }
                 }
             }
-
             //プレイヤー２だったら
             if (collision.gameObject.name == "reflectArea_2")
             {
+                
                 if (Input.GetKey("joystick 2 button 0") || Input.GetKey("joystick 2 button 3") || Input.GetKey("joystick 2 button 1") ||
                      Input.GetKey(KeyCode.R) || Input.GetKey(KeyCode.F) || Input.GetKey(KeyCode.V))
                 {
@@ -152,7 +157,7 @@ public class Bomb_script : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         //飛んでる最中プレイヤーとの接触で爆発
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" && refrect)
         {
             if (fly)
             {
@@ -178,6 +183,5 @@ public class Bomb_script : MonoBehaviour
                 }
             }
         }
-        else if (fly) { refrect = true; }
     }
 }
