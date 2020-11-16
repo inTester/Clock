@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CpuPointer : MonoBehaviour
 {
-
     void Start()
     {
     }
@@ -12,21 +11,7 @@ public class CpuPointer : MonoBehaviour
     {
     }
 
-    ////範囲外なら追尾する
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    Debug.Log("et");
-    //    if (collision.gameObject.tag == "pointer")
-    //    {
-    //        isTracking = false;
-    //    }
-    //}
-    //private void OnTriggerExit2D(Collider2D collision)
-    //{
-    //    Debug.Log("ex");
-    //    if (collision.gameObject.tag == "pointer")
-    //    {
-    //        isTracking = true;
-    //    }
-    //}
+    //場所を変えるランダム
+    //特定の場所に行く
+
 }

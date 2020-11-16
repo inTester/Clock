@@ -17,12 +17,22 @@ public class CpuController : MonoBehaviour
 
     void Update()
     {
-        //追尾
-        Vector3 velocity = Vector3.zero;
-        velocity += cpuPointer.position - transform.position;
-        if (Math.Abs(velocity.x) < OFFSET && Math.Abs(velocity.y) < OFFSET) return; //既に近かったらなし
-        transform.position += velocity.normalized * SPEED;
+        Tracking();
     }
 
+
+
+    //追尾
+    bool Tracking()
+    {
+        Vector3 velocity = Vector3.zero;
+        velocity += cpuPointer.position - transform.position;
+
+        if (Math.Abs(velocity.x) < OFFSET && Math.Abs(velocity.y) < OFFSET)
+            return false; //既に近かったらなし
+
+        transform.position += velocity.normalized * SPEED;
+        return true;
+    }
 
 }
