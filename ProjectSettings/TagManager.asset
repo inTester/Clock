@@ -6,6 +6,7 @@ TagManager:
   tags:
   - reflect
   - pointer
+  - Bomb
   layers:
   - Default
   - TransparentFX
