@@ -23,7 +23,7 @@ public class ResultCount : MonoBehaviour
         {
             winner.text = "引き分け";
         }
-        else if (l > r)
+        else if (l < r)
         {
             winner.text = "プレイヤー１(右)の勝ち";
         }

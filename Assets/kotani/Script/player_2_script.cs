@@ -7,15 +7,9 @@ public class player_2_script : MonoBehaviour
     // Start is called before the first frame update
 
     [SerializeField] private float speed;//移動速度
-    [SerializeField] private GameObject arr = default;//矢印画像
-
-    public float[] vec = new float[2];//方向
 
     void Start()
     {
-        arr.transform.rotation = Quaternion.Euler(0, 0, -90);
-        vec[0] = 1.0f;
-        vec[1] = 0.0f;
     }
 
     // Update is called once per frame
@@ -23,18 +17,29 @@ public class player_2_script : MonoBehaviour
     {
         //プレイヤーの移動
         Vector3 position = this.transform.position;
-        position += new Vector3(Input.GetAxis("Horizontal_2"), Input.GetAxis("Vertical_2"), 0) * speed;
-        this.transform.position = position;
 
-        ////画像の回転
-        if(Input.GetAxis("Vertical2_2") >= 1.00f || Input.GetAxis("Vertical2_2") <= -1.00f ||
-            Input.GetAxis("Horizontal2_2") >= 1.00f || Input.GetAxis("Horizontal2_2") <= -1.00f)
+        if(position.x + GetComponent<Transform>().localScale.x/2 + Input.GetAxis("Horizontal_2") * speed < 0)
         {
-            vec[0] = -Input.GetAxis("Vertical2_2");
-            vec[1] = Input.GetAxis("Horizontal2_2");
-
-            float angle = -Mathf.Atan2(-Input.GetAxis("Vertical2_2"), Input.GetAxis("Horizontal2_2")) * Mathf.Rad2Deg;
-            arr.transform.rotation = Quaternion.Euler(0, 0, angle);
+            position.x += Input.GetAxis("Horizontal_2") * speed;
         }
+        else { position.x = -GetComponent<Transform>().localScale.x / 2; }
+        position.y += Input.GetAxis("Vertical_2") * speed;
+        
+        //キーボード対応↓
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+        {
+            float dir = 1;
+            if (Input.GetKey(KeyCode.A)) { dir = -1; }
+            if(position.x + GetComponent<Transform>().localScale.x / 2 + dir * speed < 0) { position.x += dir * speed; }
+            else { position.x = -GetComponent<Transform>().localScale.x / 2; }
+        }
+        if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
+        {
+            float dir = 1;
+            if (Input.GetKey(KeyCode.S)) { dir = -1; }
+            position.y += dir * speed;
+        }
+
+        this.transform.position = position;
     }
 }

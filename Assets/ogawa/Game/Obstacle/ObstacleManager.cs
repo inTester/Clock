@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ObstacleManager : MonoBehaviour
 {
     //予測画像
+    [SerializeField] StartCount startCount = default;
     [SerializeField] Image nextImage = default;
     [SerializeField] int MAX_TIME = 20; //障害物変更時間
 
@@ -52,6 +53,8 @@ public class ObstacleManager : MonoBehaviour
 
     void Update()
     {
+        if (startCount.end)
+        { state = State.DESTRY; }
 
         switch (state)
         {
@@ -59,6 +62,7 @@ public class ObstacleManager : MonoBehaviour
                 break;
 
             case State.CREATE:
+                if (!startCount.flag) return;
                 //障害物の生成
                 if (!Create()) //無ければendへ
                 {
@@ -75,6 +79,7 @@ public class ObstacleManager : MonoBehaviour
                 break;
 
             case State.MOVE:
+                if (!startCount.flag) return;
                 //一定時間を超えたら
                 if (TimeCheck())
                 {
@@ -89,6 +94,8 @@ public class ObstacleManager : MonoBehaviour
                 }
                 nowObstaclesOb.Clear(); //リスト初期化
                 state = State.CREATE;
+                if (startCount.end)
+                { state = State.END; }
                 break;
 
             case State.END:

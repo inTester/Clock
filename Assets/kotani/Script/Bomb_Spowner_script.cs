@@ -5,28 +5,34 @@ using UnityEngine;
 public class Bomb_Spowner_script : MonoBehaviour
 {
     [SerializeField] GameObject obj = default;
-    [SerializeField] float interval = default;//生成間隔
+    [SerializeField] float X = default;//生成X座標最大値
+    [SerializeField] float Y = default;//生成Y座標最大値
 
-    float bornTime;//生成した時間
-    float count;
-    
+    char dir;
+    bool flag;
+
+    public void SetDir(char bombDir) { dir = bombDir; }
 
     // Start is called before the first frame update
     void Start()
     {
-        bornTime = Time.time;
+        dir = 'R';
+        flag = false;
     }
-
+    public void SetStart() { flag = true; }
     // Update is called once per frame
     void Update()
     {
-        count = Time.time - bornTime;
-
-        if(count >= interval)
+        if(GameObject.Find("Bomb(Clone)") == null && flag && GameObject.Find("Timer").GetComponent<Time_script>().timeLimit > 0)
         {
-            //生成ポジション適当(後で直す)
-            Instantiate(obj, new Vector3(Random.Range(-7.0f,7.0f), Random.Range(-4.0f,4.0f), 0), Quaternion.identity);
-            bornTime = Time.time;
+            if (dir == 'R')
+            {
+                Instantiate(obj, new Vector3(Random.Range(0.0f, X), Random.Range(-Y, Y), 0), Quaternion.identity);
+            }
+            else if (dir == 'L')
+            {
+                Instantiate(obj, new Vector3(Random.Range(-X, 0.0f), Random.Range(-Y, Y), 0), Quaternion.identity);
+            }
         }
     }
 }

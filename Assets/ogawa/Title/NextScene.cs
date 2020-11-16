@@ -17,7 +17,8 @@ public class NextScene : MonoBehaviour
         //シーン遷移
         if (Input.GetButtonDown("Next"))
         {
-            SceneManager.LoadScene(sceneName);
+            //SceneManager.LoadScene(sceneName);
+            FadeManager.Instance.LoadScene(sceneName,1.0f);
         }
     }
 
