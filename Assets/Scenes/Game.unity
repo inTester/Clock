@@ -315,6 +315,7 @@ GameObject:
   - component: {fileID: 139249167}
   - component: {fileID: 139249166}
   - component: {fileID: 139249165}
+  - component: {fileID: 139249169}
   m_Layer: 0
   m_Name: reflectArea_2
   m_TagString: reflect
@@ -415,6 +416,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &139249169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139249164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcaab6ac01585134b9d0f80941cdc017, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  POWER: 1200
 --- !u!1 &259751042
 GameObject:
   m_ObjectHideFlags: 0

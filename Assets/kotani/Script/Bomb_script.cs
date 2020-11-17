@@ -10,7 +10,7 @@ public class Bomb_script : MonoBehaviour
 
     AudioSource audioSource;
 
-    private bool fly;//投げられたか
+    public bool fly;//投げられたか
     private float bornTime;//生成時の時間
     private float limitTime;//爆発までの時間
 
