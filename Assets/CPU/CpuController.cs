@@ -20,8 +20,6 @@ public class CpuController : MonoBehaviour
         Tracking();
     }
 
-
-
     //追尾
     bool Tracking()
     {

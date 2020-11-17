@@ -100,6 +100,7 @@ MonoBehaviour:
   Limit: 10
   power: 1200
   soundSE: {fileID: 8300000, guid: 7f6ce7fcec1f39d4483adbc0f3d0a028, type: 3}
+  fly: 0
 --- !u!58 &3355586813565946234
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -115,7 +116,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.1}
   serializedVersion: 2
-  m_Radius: 1.2
+  m_Radius: 1.0051178
 --- !u!50 &3355586813565946233
 Rigidbody2D:
   serializedVersion: 4

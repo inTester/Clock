@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CpuReflection : MonoBehaviour
 {
-    const float DISTANCE = 10.0f;
+    const float DISTANCE = 4.0f;
 
     [SerializeField] float POWER = 1200;//押し出される力
     List<GameObject> bombOb = new List<GameObject>();
@@ -45,25 +45,25 @@ public class CpuReflection : MonoBehaviour
     //rayで障害物があるかを調べ、指定の方向に飛ばす
     bool Reflect(Rigidbody2D bomRb2D)
     {
-        if (Time.time - startTime < 0.5f) return false;
+        if (Time.time - startTime < 0.05f) return false;
 
         RaycastHit2D hit;
         //右下
-        hit = MySystem.RaycastAndDraw(this.gameObject.transform.position, new Vector2(0.5f, -0.5f), DISTANCE, 10);
+        hit = MySystem.RaycastAndDraw(this.gameObject.transform.position, new Vector2(0.5f, -0.5f), DISTANCE, 1 << 10);
         if (!hit.collider)
         {
             bomRb2D.AddForce(new Vector3(0.5f, -0.5f) * POWER);
             return true;
         }
         //右上
-        hit = MySystem.RaycastAndDraw(this.gameObject.transform.position, new Vector3(0.5f, 0.5f), DISTANCE, 10);
+        hit = MySystem.RaycastAndDraw(this.gameObject.transform.position, new Vector3(0.5f, 0.5f), DISTANCE, 1 << 10);
         if (!hit.collider)
         {
             bomRb2D.AddForce(new Vector3(0.5f, 0.5f) * POWER);
             return true;
         }
         //前
-        hit = MySystem.RaycastAndDraw(this.gameObject.transform.position, new Vector3(1f, 0f), DISTANCE, 10);
+        hit = MySystem.RaycastAndDraw(this.gameObject.transform.position, new Vector3(1f, 0f), DISTANCE, 1 << 10);
         if (!hit.collider)
         {
             bomRb2D.AddForce(new Vector3(1f, 0f) * POWER);
