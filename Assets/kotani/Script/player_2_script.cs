@@ -15,31 +15,26 @@ public class player_2_script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //プレイヤーの移動
-        Vector3 position = this.transform.position;
+        Vector3 vel = new Vector3(Input.GetAxis("Horizontal_2"), Input.GetAxis("Vertical_2"), 0).normalized / 10;
+        vel *= speed;
 
-        if(position.x + GetComponent<Transform>().localScale.x/2 + Input.GetAxis("Horizontal_2") * speed < 0)
-        {
-            position.x += Input.GetAxis("Horizontal_2") * speed;
-        }
-        else { position.x = -GetComponent<Transform>().localScale.x / 2; }
-        position.y += Input.GetAxis("Vertical_2") * speed;
-        
         //キーボード対応↓
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.J) || Input.GetKey(KeyCode.L))
         {
             float dir = 1;
-            if (Input.GetKey(KeyCode.A)) { dir = -1; }
-            if(position.x + GetComponent<Transform>().localScale.x / 2 + dir * speed < 0) { position.x += dir * speed; }
-            else { position.x = -GetComponent<Transform>().localScale.x / 2; }
+            if (Input.GetKey(KeyCode.J)) { dir = -1; }
+
+            if (((transform.position + vel).x + GetComponent<Transform>().localScale.x / 2) >= 0) { vel.x = 0; }
+            else { vel.x = dir * speed * 0.1f; }
         }
-        if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.I) || Input.GetKey(KeyCode.K))
         {
             float dir = 1;
-            if (Input.GetKey(KeyCode.S)) { dir = -1; }
-            position.y += dir * speed;
+            if (Input.GetKey(KeyCode.K)) { dir = -1; }
+            vel.y = dir * speed * 0.1f;
         }
 
-        this.transform.position = position;
+        if (((transform.position + vel).x + GetComponent<Transform>().localScale.x / 2) >= 0) { vel.x = 0; }
+        this.transform.position += vel;
     }
 }

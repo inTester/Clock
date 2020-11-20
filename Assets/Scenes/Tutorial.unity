@@ -688,7 +688,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8487f7888a942b144832c02772b2ef2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.1
+  speed: 1
 --- !u!50 &201780977
 Rigidbody2D:
   serializedVersion: 4
@@ -1302,8 +1302,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd35b86f39e86ee49adde6ce9abf75c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time_sp: {fileID: 1911952830}
+  countdownSE: {fileID: 0}
+  bgm: {fileID: 0}
   audioSource: {fileID: 441617283}
+  tutoF: 0
+  startCount: {fileID: 0}
+  time_sp: {fileID: 1911952830}
 --- !u!4 &441617285
 Transform:
   m_ObjectHideFlags: 0
@@ -3693,7 +3697,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d754c5af9825364082c8962412b125e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.1
+  speed: 1
   arr: {fileID: 588593207}
 --- !u!212 &1392472501
 SpriteRenderer:
