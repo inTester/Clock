@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class NextButtonBar : MonoBehaviour
 {
@@ -18,7 +19,8 @@ public class NextButtonBar : MonoBehaviour
         //マックスだったら次へ
         if (sliderR.value >= 1)
         {
-            FadeManager.Instance.LoadScene(sceneName, 1.0f);
+            //FadeManager.Instance.LoadScene(sceneName, 1.0f);
+            SceneManager.LoadScene(sceneName);
         }
         else if (Input.GetKey("joystick 1 button 0") || Input.GetKey(KeyCode.B))
         {

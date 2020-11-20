@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class StartCount : MonoBehaviour
 {
+    [SerializeField] bool TutoF;
     [SerializeField] private Text text;
     private int startTime;
     public bool flag { get; private set; }
@@ -17,14 +18,24 @@ public class StartCount : MonoBehaviour
         startTime = (int)Time.time;
         flag = false;
         end = false;
+
+        //チュートリアル用
+        if (TutoF)
+        {
+            flag = true;
+            GameObject.Find("Bomb_Spowner").GetComponent<Bomb_Spowner_script>().SetStart();
+            GameObject.Find("Timer").GetComponent<Time_script>().SetStartFlag();
+            this.gameObject.SetActive(false);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+
         //カウント3秒
         int time = 3 - (int)(Time.time - startTime);
-        
+
         if (time == 0)
         {
             text.text = "GO!";
@@ -37,8 +48,8 @@ public class StartCount : MonoBehaviour
 
             }
         }
-        else if(!end) { text.text = time.ToString(); }
-        if(time < 0 && !end) { gameObject.SetActive(false); }
+        else if (!end) { text.text = time.ToString(); }
+        if (time < 0 && !end) { gameObject.SetActive(false); }
     }
     public void End()
     {
