@@ -32,7 +32,7 @@ public class StartCount : MonoBehaviour
             {
                 flag = true;
                 GameObject.Find("Bomb_Spowner").GetComponent<Bomb_Spowner_script>().SetStart();
-                //GameObject.Find("Bomb_Spowner").GetComponent<Bombs_Spowner_script>().SetStart();
+                GameObject.Find("Bomb_Spowner").GetComponent<Bombs_Spowner_script>().SetStart();
                 GameObject.Find("Timer").GetComponent<Time_script>().SetStartFlag();
 
             }

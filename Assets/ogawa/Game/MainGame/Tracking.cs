@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ReflectArea : MonoBehaviour
+public class Tracking : MonoBehaviour
 {
     [SerializeField] Transform target = default;
 

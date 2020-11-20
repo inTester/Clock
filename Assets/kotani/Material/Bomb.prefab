@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -9149081881565727609}
   m_Layer: 9
   m_Name: Bomb
-  m_TagString: Untagged
+  m_TagString: Bomb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,6 +100,7 @@ MonoBehaviour:
   Limit: 10
   power: 1200
   soundSE: {fileID: 8300000, guid: 7f6ce7fcec1f39d4483adbc0f3d0a028, type: 3}
+  fly: 0
 --- !u!58 &3355586813565946234
 CircleCollider2D:
   m_ObjectHideFlags: 0
