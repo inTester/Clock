@@ -23,30 +23,40 @@ public class player_script : MonoBehaviour
     void Update()
     {
 
+        Vector3 pos = Vector3.zero;
+        pos.x = Input.GetAxis("Horizontal");
+        pos.y = Input.GetAxis("Vertical");
+
+        transform.position += pos.normalized * speed;
+
+
         //プレイヤーの移動
         Vector3 position = this.transform.position;
-        if(position.x - GetComponent<Transform>().localScale.x / 2 + Input.GetAxis("Horizontal") * speed > 0)
+        if (position.x - GetComponent<Transform>().localScale.x / 2 + Input.GetAxis("Horizontal") * speed > 0)
         {
             position.x += Input.GetAxis("Horizontal") * speed;
         }
-        else { position.x = GetComponent<Transform>().localScale.x / 2; }
+        else
+        {
+            position.x = GetComponent<Transform>().localScale.x / 2;
+        }
         position.y += Input.GetAxis("Vertical") * speed;
-        
-        //キーボード対応↓
-        if (Input.GetKey(KeyCode.J) || Input.GetKey(KeyCode.L))
-        {
-            float dir = 1;
-            if (Input.GetKey(KeyCode.J)) { dir = -1; }
-            if (position.x + GetComponent<Transform>().localScale.x / 2 + dir * speed > 0) { position.x += dir * speed; }
-            else { position.x = GetComponent<Transform>().localScale.x / 2; }
-        }
-        if (Input.GetKey(KeyCode.I) || Input.GetKey(KeyCode.K))
-        {
-            float dir = 1;
-            if (Input.GetKey(KeyCode.K)) { dir = -1; }
-            position.y += dir * speed;
-        }
 
-        this.transform.position = position;
+        ////キーボード対応↓
+        //if (Input.GetKey(KeyCode.J) || Input.GetKey(KeyCode.L))
+        //{
+        //    float dir = 1;
+        //    if (Input.GetKey(KeyCode.J)) { dir = -1; }
+        //    if (position.x + GetComponent<Transform>().localScale.x / 2 + dir * speed > 0) { position.x += dir * speed; }
+        //    else { position.x = GetComponent<Transform>().localScale.x / 2; }
+        //}
+        //if (Input.GetKey(KeyCode.I) || Input.GetKey(KeyCode.K))
+        //{
+        //    float dir = 1;
+        //    if (Input.GetKey(KeyCode.K)) { dir = -1; }
+        //    position.y += dir * speed;
+        //}
+
+        //this.transform.position = position;
     }
 }

@@ -19,7 +19,7 @@ public class Time_script : MonoBehaviour
 
     private int startTime; //開始時間
     public bool flag { get; private set; }
-    bool startFlag;
+    public bool startFlag { get; private set; }
     public int timeLimit { get; private set; } //残り時間
     int timeLimitPre;
 
