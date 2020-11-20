@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bomb_script : MonoBehaviour
+public class Bombs_script : MonoBehaviour
 {
     [SerializeField] private float Limit = default;//爆発までの総時間(秒)
     [SerializeField] private float power = default;//押し出される力
@@ -10,7 +10,7 @@ public class Bomb_script : MonoBehaviour
 
     AudioSource audioSource;
 
-    public bool fly;//投げられたか
+    private bool fly;//投げられたか
     private float bornTime;//生成時の時間
     private float limitTime;//爆発までの時間
 
@@ -32,7 +32,7 @@ public class Bomb_script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameObject.Find("Timer").GetComponent<Time_script>().timeLimit <= 0) { Destroy(this.gameObject); }
+        if(GameObject.Find("Timer").GetComponent<Time_script>().timeLimit <= 0) { Destroy(this.gameObject); }
         Move();
         Bomb();
         ColorChange();
@@ -42,8 +42,6 @@ public class Bomb_script : MonoBehaviour
         //Rのスコア加算
         GameObject obj = GameObject.Find("ExplosionCountR");
         obj.GetComponent<ExplosionCount_script>().AddCount(i);
-        //次の爆弾生成場所
-        GameObject.Find("Bomb_Spowner").GetComponent<Bomb_Spowner_script>().SetDir('L');
         //爆弾消去
         Destroy(this.gameObject);
     }
@@ -52,8 +50,6 @@ public class Bomb_script : MonoBehaviour
         //Lのスコア加算
         GameObject obj = GameObject.Find("ExplosionCountL");
         obj.GetComponent<ExplosionCount_script>().AddCount(i);
-        //次の爆弾生成場所
-        GameObject.Find("Bomb_Spowner").GetComponent<Bomb_Spowner_script>().SetDir('R');
         //爆弾消去
         Destroy(this.gameObject);
     }
@@ -88,7 +84,7 @@ public class Bomb_script : MonoBehaviour
     void OnTriggerExit2D(Collider2D collision)
     {
         //爆弾が離れたら当たり判定を始める
-        if (collision.gameObject.tag == "reflect") { refrect = true; }
+        if(collision.gameObject.tag == "reflect") { refrect = true; }
     }
     void OnTriggerStay2D(Collider2D collision)
     {
@@ -121,7 +117,7 @@ public class Bomb_script : MonoBehaviour
             //プレイヤー２だったら
             if (collision.gameObject.name == "reflectArea_2")
             {
-
+                
                 if (Input.GetKey("joystick 2 button 0") || Input.GetKey("joystick 2 button 3") || Input.GetKey("joystick 2 button 1") ||
                      Input.GetKey(KeyCode.R) || Input.GetKey(KeyCode.F) || Input.GetKey(KeyCode.V))
                 {

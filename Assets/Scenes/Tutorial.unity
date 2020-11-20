@@ -1588,7 +1588,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sliderR: {fileID: 1243854714}
-  sceneName: Game
+  sceneName: Select
 --- !u!1 &569619345
 GameObject:
   m_ObjectHideFlags: 0
