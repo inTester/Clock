@@ -58,7 +58,8 @@ public class Time_script : MonoBehaviour
                     if (!flag)
                     {
                         SceneManager.sceneLoaded += GameSceneLoaded;
-                        FadeManager.Instance.LoadScene("Result", 0.2f);
+                        //FadeManager.Instance.LoadScene("Result", 0.2f);
+                        SceneManager.LoadScene("Result");
                     }
                     flag = true;
                 }
