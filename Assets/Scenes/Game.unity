@@ -403,12 +403,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 259751042}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8487f7888a942b144832c02772b2ef2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 1.5
 --- !u!50 &259751044
 Rigidbody2D:
   serializedVersion: 4
@@ -518,13 +518,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 259751042}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d04b3599d39f474cb97d6fe8377cfec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cpuPointer: {fileID: 1810941457}
-  SPEED: 1
+  SPEED: 0.1
 --- !u!114 &259751049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1047,28 +1047,28 @@ MonoBehaviour:
     - obstacle: {fileID: 6395295460505161966, guid: e87377c3077fa3147bf68d84b7228c09,
         type: 3}
       position:
-      - {x: 0, y: -3}
+      - {x: 0, y: -2.3}
     - obstacle: {fileID: 3150573459566217707, guid: c4f4f206f2211e54181383fd13495809,
         type: 3}
       position:
-      - {x: 0, y: 3}
+      - {x: 0, y: 2.3}
     sprite: {fileID: 21300000, guid: 071e07b00fabbbb45a697583b891019f, type: 3}
   - obstacleData:
     - obstacle: {fileID: 4987505281469270260, guid: 975acae1079b53842a2c2b4ef0892c98,
         type: 3}
       position:
-      - {x: 3, y: 0}
-      - {x: -3, y: 0}
+      - {x: 2.3, y: 0}
+      - {x: -2.3, y: 0}
     sprite: {fileID: 21300000, guid: 7fcc6ebcb03cda340931d52d1ee26edd, type: 3}
   - obstacleData:
     - obstacle: {fileID: 4987505281469270260, guid: 975acae1079b53842a2c2b4ef0892c98,
         type: 3}
       position:
-      - {x: 0, y: -3}
+      - {x: 0, y: -2.3}
     - obstacle: {fileID: 3150573459566217707, guid: c4f4f206f2211e54181383fd13495809,
         type: 3}
       position:
-      - {x: 0, y: 3}
+      - {x: 0, y: 2.3}
     sprite: {fileID: 21300000, guid: b2d9106a1026149498170a4776656e41, type: 3}
   - obstacleData:
     - obstacle: {fileID: 6395295460505161966, guid: e87377c3077fa3147bf68d84b7228c09,
@@ -2137,7 +2137,7 @@ Transform:
   m_GameObject: {fileID: 1015698878}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 2.77, y: 0, z: 0}
-  m_LocalScale: {x: 14, y: 14, z: 0}
+  m_LocalScale: {x: 15, y: 15, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -3124,7 +3124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d754c5af9825364082c8962412b125e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 1.5
   arr: {fileID: 0}
 --- !u!212 &1445075711
 SpriteRenderer:
@@ -3695,7 +3695,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 6
   m_Sprite: {fileID: 21300000, guid: d46d34c66a9dc444a8b91adb8ea86245, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3997,12 +3997,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1984865041}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dcaab6ac01585134b9d0f80941cdc017, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  POWER: 1200
+  POWER: 300
 --- !u!212 &1984865043
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4091,7 +4091,7 @@ Transform:
   m_GameObject: {fileID: 1984865041}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -2.81, y: 0, z: 0}
-  m_LocalScale: {x: 14, y: 14, z: 0}
+  m_LocalScale: {x: 15, y: 15, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -4233,7 +4233,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2076398241}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 39a0fc0174e84bc48a102d157738f2c4, type: 3}
   m_Name: 

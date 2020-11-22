@@ -7,23 +7,26 @@ using UnityEngine.SceneManagement;
 
 public class Button_script : MonoBehaviour
 {
+    [SerializeField] [TextArea(3, 3)] string[] description;
+    [SerializeField] Text text = default;
+
     [SerializeField] EventSystem system = default;
     [SerializeField] Button first = default;//最初に選択中のボタン
-    int count1,count2;//文字送りのカウント
+    int count1, count2;//文字送りのカウント
 
     public static Text text1;
     public static Text text2;
 
-    bool flag1,flag2;
+    bool flag1, flag2;
 
     // Start is called before the first frame update
     void Start()
     {
         first.Select();
         text1 = GameObject.Find("Canvas/Button_sec1/Text").GetComponent<Text>();
-        text1.text = "一つずつ生成";
+        text1.text = "１つずつ";
         text2 = GameObject.Find("Canvas/Button_sec2/Text").GetComponent<Text>();
-        text2.text = "二人対戦用";
+        text2.text = "２人";
         count1 = 0;
         count2 = 0;
         flag1 = true;
@@ -39,10 +42,18 @@ public class Button_script : MonoBehaviour
                 return;
 
             case "Button_sec1":
-                TextChange(ref count1, text1, "一つずつ生成", "複数生成",ref flag1);
+                TextChange(ref count1, text1, "１つずつ", "複数", ref flag1);
+                if (flag1)
+                { text.text = "今ある爆弾が爆発してから次の爆弾が出現します。\n初心者向け。"; }
+                else
+                { text.text = "一定時間ごとに爆弾が出現します。\n上級者向け。"; }
                 break;
             case "Button_sec2":
-                TextChange(ref count2, text2, "二人対戦用", "一人対戦用",ref flag2);
+                TextChange(ref count2, text2, "２人", "１人", ref flag2);
+                if (flag2)
+                { text.text = "対人モード。\nコントローラーを２つ使います。"; }
+                else
+                { text.text = "対CPUモード。\n右側のコントローラー使います。"; }
                 break;
             case "Button_return":
                 SceneChange("Tutorial");
@@ -52,12 +63,13 @@ public class Button_script : MonoBehaviour
                 SceneChange("Game");
                 break;
         }
+
     }
 
-    void TextChange(ref int counter,Text tex,string st1,string st2,ref bool flag)
+    void TextChange(ref int counter, Text tex, string st1, string st2, ref bool flag)
     {
         //スティック操作されていない時は即切り替え可能
-        if(Input.GetAxis("Horizontal") == 0) { counter = 0; }
+        if (Input.GetAxis("Horizontal") == 0) { counter = 0; }
         //文字送りのカウント
         if (counter > 0) { counter--; }
         //テキスト入れ替え(項目の種類が増えた際は書き換えが必要)

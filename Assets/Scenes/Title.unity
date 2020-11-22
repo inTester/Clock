@@ -411,6 +411,7 @@ GameObject:
   - component: {fileID: 466348385}
   - component: {fileID: 466348387}
   - component: {fileID: 466348386}
+  - component: {fileID: 466348388}
   m_Layer: 5
   m_Name: TitleText
   m_TagString: Untagged
@@ -482,6 +483,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 466348384}
   m_CullTransparentMesh: 0
+--- !u!114 &466348388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466348384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 2, y: -2}
+  m_UseGraphicAlpha: 1
 --- !u!1 &767538845
 GameObject:
   m_ObjectHideFlags: 0
@@ -517,8 +533,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5, y: 37}
-  m_SizeDelta: {x: 1165.8933, y: 1154.5687}
+  m_AnchoredPosition: {x: -3, y: 24.6}
+  m_SizeDelta: {x: 944.36597, y: 935.19336}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!328 &767538847
 VideoPlayer:
@@ -528,7 +544,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 767538845}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 3c6a5daca697b8940869405a2ddb3307, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: eff2b7ee0b0f3714a874d34eeb249003, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -851,7 +867,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: push  A  button
+  m_Text: "\u30FC push  A  button \u30FC"
 --- !u!222 &1504642681
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -872,4 +888,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a2bcecd859fd8540a7b180f0032d8e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Tutorial2
+  sceneName: Tutorial1

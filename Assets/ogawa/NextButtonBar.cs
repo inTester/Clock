@@ -7,8 +7,10 @@ using UnityEngine.SceneManagement;
 public class NextButtonBar : MonoBehaviour
 {
     //Slider２つ
-    [SerializeField] Slider sliderR = default;
-    [SerializeField] string sceneName = "";
+    [SerializeField] Slider sliderBack = default;
+    [SerializeField] Slider sliderNext = default;
+    [SerializeField] string sceneNameBack = "Tutorial1";
+    [SerializeField] string sceneNameNext = "Select";
 
     void Start()
     {
@@ -16,19 +18,33 @@ public class NextButtonBar : MonoBehaviour
 
     void Update()
     {
-        //マックスだったら次へ
-        if (sliderR.value >= 1)
+        if (sliderBack.value >= 1)
         {
             //FadeManager.Instance.LoadScene(sceneName, 1.0f);
-            SceneManager.LoadScene(sceneName);
+            SceneManager.LoadScene(sceneNameBack);
         }
-        else if (Input.GetKey("joystick 1 button 0") || Input.GetKey(KeyCode.B))
+        else if (Input.GetKey("joystick 1 button 3") || Input.GetKey(KeyCode.U))
         {
-            sliderR.value += 0.01f;
+            sliderBack.value += 0.01f;
         }
         else
         {
-            sliderR.value = 0;
+            sliderBack.value = 0;
+        }
+
+        //マックスだったら次へ
+        if (sliderNext.value >= 1)
+        {
+            //FadeManager.Instance.LoadScene(sceneName, 1.0f);
+            SceneManager.LoadScene(sceneNameNext);
+        }
+        else if (Input.GetKey("joystick 1 button 0") || Input.GetKey(KeyCode.B))
+        {
+            sliderNext.value += 0.01f;
+        }
+        else
+        {
+            sliderNext.value = 0;
         }
     }
 }

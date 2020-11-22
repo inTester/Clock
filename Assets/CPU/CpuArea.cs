@@ -40,7 +40,7 @@ public class CpuArea : MonoBehaviour
     //0だったら一定カウントごとに"場所を変える"を呼び出す
     void PointerSet()
     {
-        if (Time.time - startTime > 3.0f)
+        if (Time.time - startTime > 2.0f)
         {
             cpuPointer.ChangePos();
             startTime = Time.time;

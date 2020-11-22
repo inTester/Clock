@@ -6,7 +6,7 @@ public class CpuReflection : MonoBehaviour
 {
     const float DISTANCE = 4.0f;
 
-    [SerializeField] float POWER = 1200;//押し出される力
+    [SerializeField] float POWER;//押し出される力
     List<GameObject> bombOb = new List<GameObject>();
 
     float startTime;
