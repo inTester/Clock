@@ -2078,6 +2078,7 @@ GameObject:
   - component: {fileID: 765632653}
   - component: {fileID: 765632655}
   - component: {fileID: 765632652}
+  - component: {fileID: 765632656}
   m_Layer: 5
   m_Name: ExplosionCountL
   m_TagString: Untagged
@@ -2173,6 +2174,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 765632653}
+--- !u!95 &765632656
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 765632650}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a4671d78369eef149b60386ec623f884, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &797020763
 GameObject:
   m_ObjectHideFlags: 0
@@ -4468,6 +4488,7 @@ GameObject:
   - component: {fileID: 1650576830}
   - component: {fileID: 1650576829}
   - component: {fileID: 1650576831}
+  - component: {fileID: 1650576834}
   m_Layer: 5
   m_Name: ExplosionCountR
   m_TagString: Untagged
@@ -4563,6 +4584,25 @@ RectTransform:
   m_AnchoredPosition: {x: 226, y: 198}
   m_SizeDelta: {x: 108.661316, y: 27.949406}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &1650576834
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1650576828}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 987de8bde66fe884b9ca7b64781d2ead, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1695256959
 GameObject:
   m_ObjectHideFlags: 0

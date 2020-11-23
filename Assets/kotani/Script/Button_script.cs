@@ -56,7 +56,7 @@ public class Button_script : MonoBehaviour
                 { text.text = "対CPUモード。\n右側のコントローラー使います。"; }
                 break;
             case "Button_return":
-                SceneChange("Tutorial");
+                SceneChange("Tutorial2");
                 break;
             case "Button_start":
                 SceneManager.sceneLoaded += GameSceneLoaded;

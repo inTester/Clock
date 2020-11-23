@@ -50,6 +50,7 @@ public class CpuArea : MonoBehaviour
     //1以上だったら"そのcollitionの場所に行く"を呼び出す
     void PointerSetBomb()
     {
+        if (bombOb[0] == null) return;
         cpuPointer.ChangePos(bombOb[0].transform.position);
     }
 

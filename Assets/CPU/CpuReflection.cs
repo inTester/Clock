@@ -17,6 +17,7 @@ public class CpuReflection : MonoBehaviour
     {
         if (bombOb.Count > 0)
         {
+            if (bombOb[0] == null) return;
             if (Reflect(bombOb[0].GetComponent<Rigidbody2D>()))
                 bombOb[0].GetComponent<Bomb_script>().fly = true; //飛ばすフラグをオン
         }
