@@ -33,7 +33,6 @@ public class Bomb_script : MonoBehaviour
     void Update()
     {
         if (GameObject.Find("Timer").GetComponent<Time_script>().timeLimit <= 0) { Destroy(this.gameObject); }
-        Move();
         Bomb();
         ColorChange();
     }
@@ -97,22 +96,22 @@ public class Bomb_script : MonoBehaviour
             //プレイヤー１だったら
             if (collision.gameObject.name == "reflectArea_1")
             {
-                if (Input.GetKey("joystick 1 button 0") || Input.GetKey("joystick 1 button 3") || Input.GetKey("joystick 1 button 2") ||
-                    Input.GetKey(KeyCode.U) || Input.GetKey(KeyCode.H) || Input.GetKey(KeyCode.B))
+                if (Input.GetKeyDown("joystick 1 button 0") || Input.GetKeyDown("joystick 1 button 3") || Input.GetKeyDown("joystick 1 button 2") ||
+                    Input.GetKeyDown(KeyCode.U) || Input.GetKeyDown(KeyCode.H) || Input.GetKeyDown(KeyCode.B))
                 {
                     //ボタン入力で飛ぶ
                     fly = true;
                     audioSource.PlayOneShot(soundSE);
                     //ボタンで方向を決める
-                    if (Input.GetKeyDown("joystick 1 button 0") || Input.GetKey(KeyCode.B))
+                    if (Input.GetKeyDown("joystick 1 button 0") || Input.GetKeyDown(KeyCode.B))
                     {
                         GetComponent<Rigidbody2D>().AddForce(new Vector3(-0.5f, -0.5f) * power);
                     }
-                    if (Input.GetKeyDown("joystick 1 button 3") || Input.GetKey(KeyCode.U))
+                    if (Input.GetKeyDown("joystick 1 button 3") || Input.GetKeyDown(KeyCode.U))
                     {
                         GetComponent<Rigidbody2D>().AddForce(new Vector3(-0.5f, 0.5f) * power);
                     }
-                    if (Input.GetKeyDown("joystick 1 button 2") || Input.GetKey(KeyCode.H))
+                    if (Input.GetKeyDown("joystick 1 button 2") || Input.GetKeyDown(KeyCode.H))
                     {
                         GetComponent<Rigidbody2D>().AddForce(new Vector3(-1f, 0f) * power);
                     }
@@ -122,22 +121,22 @@ public class Bomb_script : MonoBehaviour
             if (collision.gameObject.name == "reflectArea_2")
             {
 
-                if (Input.GetKey("joystick 2 button 0") || Input.GetKey("joystick 2 button 3") || Input.GetKey("joystick 2 button 1") ||
-                     Input.GetKey(KeyCode.R) || Input.GetKey(KeyCode.F) || Input.GetKey(KeyCode.V))
+                if (Input.GetKeyDown("joystick 2 button 0") || Input.GetKeyDown("joystick 2 button 3") || Input.GetKeyDown("joystick 2 button 1") ||
+                     Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.V))
                 {
                     //ボタン入力で飛ぶ
                     fly = true;
                     audioSource.PlayOneShot(soundSE);
                     //ボタンで方向を決める
-                    if (Input.GetKeyDown("joystick 2 button 0") || Input.GetKey(KeyCode.V))
+                    if (Input.GetKeyDown("joystick 2 button 0") || Input.GetKeyDown(KeyCode.V))
                     {
                         GetComponent<Rigidbody2D>().AddForce(new Vector3(0.5f, -0.5f) * power);
                     }
-                    if (Input.GetKeyDown("joystick 2 button 3") || Input.GetKey(KeyCode.R))
+                    if (Input.GetKeyDown("joystick 2 button 3") || Input.GetKeyDown(KeyCode.R))
                     {
                         GetComponent<Rigidbody2D>().AddForce(new Vector3(0.5f, 0.5f) * power);
                     }
-                    if (Input.GetKeyDown("joystick 2 button 1") || Input.GetKey(KeyCode.F))
+                    if (Input.GetKeyDown("joystick 2 button 1") || Input.GetKeyDown(KeyCode.F))
                     {
                         GetComponent<Rigidbody2D>().AddForce(new Vector3(1f, 0f) * power);
                     }
@@ -145,14 +144,6 @@ public class Bomb_script : MonoBehaviour
             }
 
         }
-    }
-    void Move()
-    {
-        ////爆弾が何かにぶつかるまで力を加算
-        //if (!refrect)
-        //{
-        //    GetComponent<Rigidbody2D>().AddForce(new Vector3(x * power, -y * power, 0));
-        //}
     }
     void OnTriggerEnter2D(Collider2D collision)
     {

@@ -568,6 +568,7 @@ GameObject:
   - component: {fileID: 259784713}
   - component: {fileID: 259784712}
   - component: {fileID: 259784711}
+  - component: {fileID: 259784714}
   m_Layer: 8
   m_Name: PointerTrigger
   m_TagString: pointer
@@ -618,6 +619,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &259784714
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 259784710}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &295329151
 GameObject:
   m_ObjectHideFlags: 0
@@ -2202,6 +2224,7 @@ GameObject:
   - component: {fileID: 1015698882}
   - component: {fileID: 1015698880}
   - component: {fileID: 1015698881}
+  - component: {fileID: 1015698883}
   m_Layer: 0
   m_Name: reflectArea_1
   m_TagString: reflect
@@ -2302,6 +2325,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1445075712}
+--- !u!50 &1015698883
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1015698878}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &1034553964
 GameObject:
   m_ObjectHideFlags: 0
@@ -4084,6 +4128,7 @@ GameObject:
   - component: {fileID: 1984865044}
   - component: {fileID: 1984865043}
   - component: {fileID: 1984865042}
+  - component: {fileID: 1984865047}
   m_Layer: 0
   m_Name: reflectArea_2
   m_TagString: reflect
@@ -4103,7 +4148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcaab6ac01585134b9d0f80941cdc017, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  POWER: 500
+  POWER: 300
 --- !u!212 &1984865043
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4197,6 +4242,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &1984865047
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1984865041}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &2009040079
 GameObject:
   m_ObjectHideFlags: 0

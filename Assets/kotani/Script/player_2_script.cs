@@ -15,7 +15,6 @@ public class player_2_script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         Vector3 vel = new Vector3(Input.GetAxis("Horizontal_2"), Input.GetAxis("Vertical_2"), 0).normalized / 10;
         vel *= speed;
 
@@ -36,6 +35,7 @@ public class player_2_script : MonoBehaviour
         }
 
         if (((transform.position + vel).x + GetComponent<Transform>().localScale.x / 2) >= 0) { vel.x = 0; }
+        if(transform.position.x > 0) { transform.position = new Vector3(GetComponent<Transform>().localScale.x / 2, transform.position.y, 0); }
         this.transform.position += vel;
     }
 }

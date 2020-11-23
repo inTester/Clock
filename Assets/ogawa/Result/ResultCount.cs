@@ -20,11 +20,11 @@ public class ResultCount : MonoBehaviour
     }
     public void Next()
     {
-        if(Input.GetKeyDown("joystick 1 button 0"))
+        if (Input.GetKeyDown("joystick 1 button 0") || Input.GetKeyDown(KeyCode.B)) 
         {
             FadeManager.Instance.LoadScene("Select", 1.0f);
         }
-        else if(Input.GetKeyDown("joystick 1 button 3"))
+        else if(Input.GetKeyDown("joystick 1 button 3") || Input.GetKeyDown(KeyCode.U))
         {
             FadeManager.Instance.LoadScene("Title", 1.0f);
         }
