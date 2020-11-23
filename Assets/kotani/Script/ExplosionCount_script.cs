@@ -25,5 +25,12 @@ public class ExplosionCount_script : MonoBehaviour
     public void AddCount(int i)
     {
         count += i;
+        Motion();
+    }
+    void Motion()
+    {
+        Animator _animator = GetComponent<Animator>();
+        var info = _animator.GetCurrentAnimatorStateInfo(0);
+        _animator.Play(info.nameHash, 0, 0.0f);
     }
 }
