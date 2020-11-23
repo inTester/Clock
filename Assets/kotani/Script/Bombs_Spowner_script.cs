@@ -9,6 +9,8 @@ public class Bombs_Spowner_script : MonoBehaviour
     [SerializeField] float Y = default;//生成Y座標最大値
     [SerializeField] int interval = default;//生成間隔
 
+    int count;//今までの生成数
+
     char dir;
     bool flag;
 
@@ -27,21 +29,25 @@ public class Bombs_Spowner_script : MonoBehaviour
     public void SetStart() { flag = true; }
     void Update()
     {
-        if(flag && GameObject.Find("Timer").GetComponent<Time_script>().timeLimit > 0)
+        if (flag && GameObject.Find("Timer").GetComponent<Time_script>().timeLimit > 0)
         {
             if ((int)Time.time - bornTime >= interval)
             {
                 if (dir == 'R')
                 {
-                    Instantiate(obj, new Vector3(Random.Range(0.0f, X), Random.Range(-Y, Y), 0), Quaternion.identity);
+                    var bomb = Instantiate(obj, new Vector3(Random.Range(0.0f, X), Random.Range(-Y, Y), 0), Quaternion.identity);
+                    bomb.name = "Bomb" + count;
                     SetDir('L');
                     bornTime = (int)Time.time;
+                    count++;
                 }
                 else if (dir == 'L')
                 {
-                    Instantiate(obj, new Vector3(Random.Range(-X, 0.0f), Random.Range(-Y, Y), 0), Quaternion.identity);
+                    var bomb = Instantiate(obj, new Vector3(Random.Range(-X, 0.0f), Random.Range(-Y, Y), 0), Quaternion.identity);
+                    bomb.name = "Bomb" + count;
                     SetDir('R');
                     bornTime = (int)Time.time;
+                    count++;
                 }
             }
         }
