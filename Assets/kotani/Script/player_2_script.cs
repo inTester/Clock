@@ -15,6 +15,7 @@ public class player_2_script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         Vector3 vel = new Vector3(Input.GetAxis("Horizontal_2"), Input.GetAxis("Vertical_2"), 0).normalized / 10;
         vel *= speed;
 
