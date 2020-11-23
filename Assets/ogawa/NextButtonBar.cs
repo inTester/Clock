@@ -23,7 +23,7 @@ public class NextButtonBar : MonoBehaviour
             //FadeManager.Instance.LoadScene(sceneName, 1.0f);
             SceneManager.LoadScene(sceneNameBack);
         }
-        else if (Input.GetKey("joystick 1 button 3") || Input.GetKey(KeyCode.U))
+        else if (Input.GetKey("joystick 1 button 2") || Input.GetKey(KeyCode.G))
         {
             sliderBack.value += 0.01f;
         }

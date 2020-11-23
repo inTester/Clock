@@ -1538,7 +1538,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Y\u30DC\u30BF\u30F3\u9577\u62BC\u3057 \u3067\u8AAC\u660E\u306B\u623B\u308B"
+  m_Text: "B\u30DC\u30BF\u30F3\u9577\u62BC\u3057 \u3067\u8AAC\u660E\u306B\u623B\u308B"
 --- !u!222 &527866484
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -19,18 +19,18 @@ public class player_2_script : MonoBehaviour
         vel *= speed;
 
         //キーボード対応↓
-        if (Input.GetKey(KeyCode.J) || Input.GetKey(KeyCode.L))
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
         {
             float dir = 1;
-            if (Input.GetKey(KeyCode.J)) { dir = -1; }
+            if (Input.GetKey(KeyCode.A)) { dir = -1; }
 
             if (((transform.position + vel).x + GetComponent<Transform>().localScale.x / 2) >= 0) { vel.x = 0; }
             else { vel.x = dir * speed * 0.1f; }
         }
-        if (Input.GetKey(KeyCode.I) || Input.GetKey(KeyCode.K))
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
         {
             float dir = 1;
-            if (Input.GetKey(KeyCode.K)) { dir = -1; }
+            if (Input.GetKey(KeyCode.S)) { dir = -1; }
             vel.y = dir * speed * 0.1f;
         }
 

@@ -21,6 +21,7 @@ public class TutoManager : MonoBehaviour
     [SerializeField] Image image = default;
     [SerializeField] Text headText = default;
     [SerializeField] Text descriptionText = default;
+    [SerializeField] GameObject xText = default;
 
     [SerializeField] string sceneName = "Tutorial2";
 
@@ -29,6 +30,7 @@ public class TutoManager : MonoBehaviour
 
     void Start()
     {
+        xText.SetActive(false);
         Show();
     }
 
@@ -37,12 +39,31 @@ public class TutoManager : MonoBehaviour
         if (Input.GetKeyDown("joystick 1 button 0") || Input.GetKeyDown(KeyCode.B))
         {
             i++;
+            xText.SetActive(true);
+
             if (data.Length <= i)
             {
                 SceneManager.LoadScene(sceneName);
                 return;
             }
+            else if (0 == i)
+            {
+                xText.SetActive(false);
+            }
 
+            Show();
+        }
+
+        if (Input.GetKeyDown("joystick 1 button 2") || Input.GetKeyDown(KeyCode.G))
+        {
+            if (0 != i)
+            {
+                i--;
+                if (0 == i)
+                {
+                    xText.SetActive(false);
+                }
+            }
             Show();
         }
     }

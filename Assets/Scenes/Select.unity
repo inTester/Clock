@@ -456,6 +456,7 @@ GameObject:
   - component: {fileID: 222573467}
   - component: {fileID: 222573466}
   - component: {fileID: 222573465}
+  - component: {fileID: 222573468}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -476,7 +477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
+  m_VerticalAxis: VerticalS
   m_SubmitButton: Submit
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
@@ -494,7 +495,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 53882694}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &222573467
@@ -511,6 +512,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &222573468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 222573464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59054247f6b0c6b4798b0fc419924aab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &273610148
 GameObject:
   m_ObjectHideFlags: 0
@@ -688,7 +701,6 @@ MonoBehaviour:
   description: []
   text: {fileID: 273610150}
   system: {fileID: 222573466}
-  first: {fileID: 53882696}
 --- !u!1 &445073606
 GameObject:
   m_ObjectHideFlags: 0

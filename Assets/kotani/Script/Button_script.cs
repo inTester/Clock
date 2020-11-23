@@ -11,7 +11,7 @@ public class Button_script : MonoBehaviour
     [SerializeField] Text text = default;
 
     [SerializeField] EventSystem system = default;
-    [SerializeField] Button first = default;//最初に選択中のボタン
+    //[SerializeField] Button first = default;//最初に選択中のボタン
     int count1, count2;//文字送りのカウント
 
     public static Text text1;
@@ -22,7 +22,7 @@ public class Button_script : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        first.Select();
+        //first.Select();
         text1 = GameObject.Find("Canvas/Button_sec1/Text").GetComponent<Text>();
         text1.text = "１つずつ";
         text2 = GameObject.Find("Canvas/Button_sec2/Text").GetComponent<Text>();
@@ -73,7 +73,7 @@ public class Button_script : MonoBehaviour
         //文字送りのカウント
         if (counter > 0) { counter--; }
         //テキスト入れ替え(項目の種類が増えた際は書き換えが必要)
-        if ((Input.GetAxis("Horizontal") > 0.8f || Input.GetAxis("Horizontal") < -0.8f) && counter == 0)
+        if ((Input.GetAxis("Horizontal") > 0.8f || Input.GetKeyDown(KeyCode.J) || Input.GetKeyDown(KeyCode.L) || Input.GetAxis("Horizontal") < -0.8f) && counter == 0)
         {
             if (tex.text == st1)
             {
@@ -90,7 +90,7 @@ public class Button_script : MonoBehaviour
     }
     void SceneChange(string SceneName)
     {
-        if (Input.GetKeyDown("joystick 1 button 0"))
+        if (Input.GetButtonDown("Next"))
         {
             SceneManager.LoadScene(SceneName);
             //FadeManager.Instance.LoadScene(SceneName, 1.0f);
