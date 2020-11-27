@@ -12,6 +12,12 @@ public class NextButtonBar : MonoBehaviour
     [SerializeField] string sceneNameBack = "Tutorial1";
     [SerializeField] string sceneNameNext = "Select";
 
+    [SerializeField] AudioClip next = default;
+    [SerializeField] AudioClip back = default;
+    [SerializeField] AudioSource audioSource = default;
+
+    bool f2;
+
     void Start()
     {
     }
@@ -32,11 +38,18 @@ public class NextButtonBar : MonoBehaviour
             sliderBack.value = 0;
         }
 
+
+
         //マックスだったら次へ
         if (sliderNext.value >= 1)
         {
             //FadeManager.Instance.LoadScene(sceneName, 1.0f);
             SceneManager.LoadScene(sceneNameNext);
+        }
+        else if (sliderNext.value >= 0.95f && !f2)
+        {
+            audioSource.PlayOneShot(next);
+            f2 = true;
         }
         else if (Input.GetKey("joystick 1 button 0") || Input.GetKey(KeyCode.B))
         {
@@ -45,6 +58,8 @@ public class NextButtonBar : MonoBehaviour
         else
         {
             sliderNext.value = 0;
+            f2 = false;
         }
     }
+
 }

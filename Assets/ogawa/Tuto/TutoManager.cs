@@ -23,6 +23,9 @@ public class TutoManager : MonoBehaviour
     [SerializeField] Text descriptionText = default;
     [SerializeField] GameObject xText = default;
 
+    [SerializeField] AudioClip next = default;
+    [SerializeField] AudioClip back = default;
+    [SerializeField] AudioSource audioSource = default;
     [SerializeField] string sceneName = "Tutorial2";
 
 
@@ -40,7 +43,7 @@ public class TutoManager : MonoBehaviour
         {
             i++;
             xText.SetActive(true);
-
+            audioSource.PlayOneShot(next);
             if (data.Length <= i)
             {
                 SceneManager.LoadScene(sceneName);
@@ -59,6 +62,7 @@ public class TutoManager : MonoBehaviour
             if (0 != i)
             {
                 i--;
+                audioSource.PlayOneShot(back);
                 if (0 == i)
                 {
                     xText.SetActive(false);

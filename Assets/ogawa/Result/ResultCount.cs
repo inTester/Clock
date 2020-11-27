@@ -9,7 +9,8 @@ public class ResultCount : MonoBehaviour
     [SerializeField] Text player2 = default;
     [SerializeField] GameObject score1 = default;
     [SerializeField] GameObject score2 = default;
-
+    [SerializeField] AudioClip next = default;
+    [SerializeField] AudioSource audioSource = default;
     void Start()
     {
     }
@@ -22,11 +23,13 @@ public class ResultCount : MonoBehaviour
     {
         if (Input.GetKeyDown("joystick 1 button 0") || Input.GetKeyDown(KeyCode.B)) 
         {
-            FadeManager.Instance.LoadScene("Select", 1.0f);
+            audioSource.PlayOneShot(next);
+            FadeManager.Instance.LoadScene("Title", 1.0f);
         }
         else if(Input.GetKeyDown("joystick 1 button 3") || Input.GetKeyDown(KeyCode.U))
         {
-            FadeManager.Instance.LoadScene("Title", 1.0f);
+            audioSource.PlayOneShot(next);
+            FadeManager.Instance.LoadScene("Select", 1.0f);
         }
     }
 
@@ -36,7 +39,7 @@ public class ResultCount : MonoBehaviour
         {
             WinnerText("Draw");
             ScoreText(l,r);
-            AnimeFlag(true, true);
+            AnimeFlag(false, false);
         }
         else if (l < r)//右勝ち
         {

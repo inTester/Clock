@@ -19,6 +19,10 @@ public class Button_script : MonoBehaviour
 
     bool flag1, flag2;
 
+    [SerializeField] AudioClip next = default;
+    [SerializeField] AudioClip select = default;
+    [SerializeField] AudioSource audioSource = default;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -75,6 +79,7 @@ public class Button_script : MonoBehaviour
         //テキスト入れ替え(項目の種類が増えた際は書き換えが必要)
         if ((Input.GetAxis("Horizontal") > 0.8f || Input.GetKeyDown(KeyCode.J) || Input.GetKeyDown(KeyCode.L) || Input.GetAxis("Horizontal") < -0.8f) && counter == 0)
         {
+            audioSource.PlayOneShot(select);
             if (tex.text == st1)
             {
                 tex.text = st2;
@@ -92,6 +97,7 @@ public class Button_script : MonoBehaviour
     {
         if (Input.GetButtonDown("Next"))
         {
+            audioSource.PlayOneShot(next);
             SceneManager.LoadScene(SceneName);
             //FadeManager.Instance.LoadScene(SceneName, 1.0f);
         }
