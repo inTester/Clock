@@ -23,8 +23,11 @@ public class CpuController : MonoBehaviour
     //追尾
     bool Tracking()
     {
+
         Vector3 velocity = Vector3.zero;
         velocity += cpuPointer.position - transform.position;
+
+        if (((transform.position + velocity).x + GetComponent<Transform>().localScale.x / 2) >= 0) { velocity.x = 0; }
 
         if (Math.Abs(velocity.x) < OFFSET && Math.Abs(velocity.y) < OFFSET)
             return false; //既に近かったらなし
