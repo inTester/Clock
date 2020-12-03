@@ -2,13 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class NextButtonBar : MonoBehaviour
 {
     //Slider２つ
-    [SerializeField] Slider sliderL = default;
-    [SerializeField] Slider sliderR = default;
-    [SerializeField] string sceneName = "";
+    [SerializeField] Slider sliderBack = default;
+    [SerializeField] Slider sliderNext = default;
+    [SerializeField] string sceneNameBack = "Tutorial1";
+    [SerializeField] string sceneNameNext = "Select";
+
+    [SerializeField] AudioClip next = default;
+    [SerializeField] AudioClip back = default;
+    [SerializeField] AudioSource audioSource = default;
+
+    bool f2;
 
     void Start()
     {
@@ -16,40 +24,42 @@ public class NextButtonBar : MonoBehaviour
 
     void Update()
     {
-        //両方マックスだったら次へ
-        if (sliderL.value >= 1 && sliderR.value >= 1)
+        if (sliderBack.value >= 1)
         {
-            FadeManager.Instance.LoadScene(sceneName, 1.0f);
+            //FadeManager.Instance.LoadScene(sceneName, 1.0f);
+            SceneManager.LoadScene(sceneNameBack);
         }
-
-        //片方マックスだったら相手の入力を待つ表示
-        if (sliderL.value >= 1)
+        else if (Input.GetKey("joystick 1 button 2") || Input.GetKey(KeyCode.G))
         {
-            sliderL.gameObject.GetComponentInChildren<Text>().text = "右のプレイヤーを待っています…";
+            sliderBack.value += 0.01f;
         }
-        //マックスでなかったら増やす
-        else if (Input.GetKey("joystick 2 button 0") || Input.GetKey(KeyCode.V))
-        {
-            sliderL.value += 0.01f;
-        }
-        //途中でやめたら0にする
         else
         {
-            sliderL.value = 0;
+            sliderBack.value = 0;
         }
 
-        //R側
-        if (sliderR.value >= 1)
+
+
+        //マックスだったら次へ
+        if (sliderNext.value >= 1)
         {
-            sliderR.gameObject.GetComponentInChildren<Text>().text = "左のプレイヤーを待っています…";
+            //FadeManager.Instance.LoadScene(sceneName, 1.0f);
+            SceneManager.LoadScene(sceneNameNext);
+        }
+        else if (sliderNext.value >= 0.95f && !f2)
+        {
+            audioSource.PlayOneShot(next);
+            f2 = true;
         }
         else if (Input.GetKey("joystick 1 button 0") || Input.GetKey(KeyCode.B))
         {
-            sliderR.value += 0.01f;
+            sliderNext.value += 0.01f;
         }
         else
         {
-            sliderR.value = 0;
+            sliderNext.value = 0;
+            f2 = false;
         }
     }
+
 }

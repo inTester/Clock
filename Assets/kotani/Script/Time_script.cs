@@ -83,7 +83,7 @@ public class Time_script : MonoBehaviour
     private void GameSceneLoaded(Scene next, LoadSceneMode mode)
     {
         // シーン切り替え後のスクリプトを取得
-        var resultcount = GameObject.Find("CountText").GetComponent<ResultCount>();
+        var resultcount = GameObject.Find("Canvas").GetComponent<ResultCount>();
         // データを渡す処理
         resultcount.CountSet(exp_L.count, exp_R.count);
         // イベントから削除

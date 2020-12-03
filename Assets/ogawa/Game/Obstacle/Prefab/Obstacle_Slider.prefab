@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6395295460505161965}
   - component: {fileID: 6395295460505161962}
   - component: {fileID: -5860206074318892238}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Obstacle_Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -14,7 +14,7 @@ public class Bomb_Spowner_script : MonoBehaviour
     public void SetDir(char bombDir) { dir = bombDir; }
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         dir = 'R';
         flag = false;

@@ -15,31 +15,27 @@ public class player_2_script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //プレイヤーの移動
-        Vector3 position = this.transform.position;
+        Vector3 vel = new Vector3(Input.GetAxis("Horizontal_2"), Input.GetAxis("Vertical_2"), 0).normalized / 10;
+        vel *= speed;
 
-        if(position.x + GetComponent<Transform>().localScale.x/2 + Input.GetAxis("Horizontal_2") * speed < 0)
-        {
-            position.x += Input.GetAxis("Horizontal_2") * speed;
-        }
-        else { position.x = -GetComponent<Transform>().localScale.x / 2; }
-        position.y += Input.GetAxis("Vertical_2") * speed;
-        
         //キーボード対応↓
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
         {
             float dir = 1;
             if (Input.GetKey(KeyCode.A)) { dir = -1; }
-            if(position.x + GetComponent<Transform>().localScale.x / 2 + dir * speed < 0) { position.x += dir * speed; }
-            else { position.x = -GetComponent<Transform>().localScale.x / 2; }
+
+            if (((transform.position + vel).x + GetComponent<Transform>().localScale.x / 2) >= 0) { vel.x = 0; }
+            else { vel.x = dir * speed * 0.1f; }
         }
-        if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
         {
             float dir = 1;
             if (Input.GetKey(KeyCode.S)) { dir = -1; }
-            position.y += dir * speed;
+            vel.y = dir * speed * 0.1f;
         }
 
-        this.transform.position = position;
+        if (((transform.position + vel).x + GetComponent<Transform>().localScale.x / 2) >= 0) { vel.x = 0; }
+        if(transform.position.x > 0) { transform.position = new Vector3(GetComponent<Transform>().localScale.x / 2, transform.position.y, 0); }
+        this.transform.position += vel;
     }
 }

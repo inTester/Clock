@@ -9,44 +9,34 @@ public class player_script : MonoBehaviour
     [SerializeField] private float speed;//移動速度
     [SerializeField] private GameObject arr = default;//矢印画像
 
-    //public float[] vec = new float[2];//方向
-
-
     void Start()
     {
-        //arr.transform.rotation = Quaternion.Euler(0, 0, -90);
-        //vec[0] = 1.0f;
-        //vec[1] = 0.0f;
     }
 
     // Update is called once per frame
     void Update()
     {
+        Vector3 vel = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0).normalized / 10;
+        vel *= speed;
 
-        //プレイヤーの移動
-        Vector3 position = this.transform.position;
-        if(position.x - GetComponent<Transform>().localScale.x / 2 + Input.GetAxis("Horizontal") * speed > 0)
-        {
-            position.x += Input.GetAxis("Horizontal") * speed;
-        }
-        else { position.x = GetComponent<Transform>().localScale.x / 2; }
-        position.y += Input.GetAxis("Vertical") * speed;
-        
         //キーボード対応↓
         if (Input.GetKey(KeyCode.J) || Input.GetKey(KeyCode.L))
         {
             float dir = 1;
             if (Input.GetKey(KeyCode.J)) { dir = -1; }
-            if (position.x + GetComponent<Transform>().localScale.x / 2 + dir * speed > 0) { position.x += dir * speed; }
-            else { position.x = GetComponent<Transform>().localScale.x / 2; }
+
+            if (((transform.position + vel).x - GetComponent<Transform>().localScale.x / 2) <= 0) { vel.x = 0; }
+            else { vel.x = dir * speed * 0.1f; }
         }
         if (Input.GetKey(KeyCode.I) || Input.GetKey(KeyCode.K))
         {
             float dir = 1;
             if (Input.GetKey(KeyCode.K)) { dir = -1; }
-            position.y += dir * speed;
+            vel.y = dir * speed * 0.1f;
         }
 
-        this.transform.position = position;
+        if (((transform.position + vel).x - GetComponent<Transform>().localScale.x / 2) <= 0) { vel.x = 0; }
+        if(transform.position.x <= 0) { transform.position = new Vector3(GetComponent<Transform>().localScale.x / 2, transform.position.y, 0); }
+        this.transform.position += vel;
     }
 }
