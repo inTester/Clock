@@ -102,18 +102,22 @@ public class Bomb_script : MonoBehaviour
                     //ボタン入力で飛ぶ
                     fly = true;
                     audioSource.PlayOneShot(soundSE);
+                    var rigi = GetComponent<Rigidbody2D>();
                     //ボタンで方向を決める
                     if (Input.GetKeyDown("joystick 1 button 0") || Input.GetKeyDown(KeyCode.B))
                     {
-                        GetComponent<Rigidbody2D>().AddForce(new Vector3(-0.5f, -0.5f) * power);
+                        rigi.velocity = Vector3.zero;
+                        rigi.AddForce(new Vector3(-0.5f, -0.5f) * power);
                     }
-                    if (Input.GetKeyDown("joystick 1 button 3") || Input.GetKeyDown(KeyCode.U))
+                    else if (Input.GetKeyDown("joystick 1 button 3") || Input.GetKeyDown(KeyCode.U))
                     {
-                        GetComponent<Rigidbody2D>().AddForce(new Vector3(-0.5f, 0.5f) * power);
+                        rigi.velocity = Vector3.zero;
+                        rigi.AddForce(new Vector3(-0.5f, 0.5f) * power);
                     }
-                    if (Input.GetKeyDown("joystick 1 button 2") || Input.GetKeyDown(KeyCode.H))
+                    else if (Input.GetKeyDown("joystick 1 button 2") || Input.GetKeyDown(KeyCode.H))
                     {
-                        GetComponent<Rigidbody2D>().AddForce(new Vector3(-1f, 0f) * power);
+                        rigi.velocity = Vector3.zero;
+                        rigi.AddForce(new Vector3(-1f, 0f) * power);
                     }
                 }
             }
@@ -127,18 +131,22 @@ public class Bomb_script : MonoBehaviour
                     //ボタン入力で飛ぶ
                     fly = true;
                     audioSource.PlayOneShot(soundSE);
+                    var rigi = GetComponent<Rigidbody2D>();
                     //ボタンで方向を決める
                     if (Input.GetKeyDown("joystick 2 button 0") || Input.GetKeyDown(KeyCode.V))
                     {
-                        GetComponent<Rigidbody2D>().AddForce(new Vector3(0.5f, -0.5f) * power);
+                        rigi.velocity = Vector3.zero;
+                        rigi.AddForce(new Vector3(0.5f, -0.5f) * power);
                     }
-                    if (Input.GetKeyDown("joystick 2 button 3") || Input.GetKeyDown(KeyCode.R))
+                    else if (Input.GetKeyDown("joystick 2 button 3") || Input.GetKeyDown(KeyCode.R))
                     {
-                        GetComponent<Rigidbody2D>().AddForce(new Vector3(0.5f, 0.5f) * power);
+                        rigi.velocity = Vector3.zero;
+                        rigi.AddForce(new Vector3(0.5f, 0.5f) * power);
                     }
-                    if (Input.GetKeyDown("joystick 2 button 1") || Input.GetKeyDown(KeyCode.F))
+                    else if (Input.GetKeyDown("joystick 2 button 1") || Input.GetKeyDown(KeyCode.F))
                     {
-                        GetComponent<Rigidbody2D>().AddForce(new Vector3(1f, 0f) * power);
+                        rigi.velocity = Vector3.zero;
+                        rigi.AddForce(new Vector3(1f, 0f) * power);
                     }
                 }
             }
@@ -152,7 +160,7 @@ public class Bomb_script : MonoBehaviour
         {
             if (fly)
             {
-                if (this.transform.position.x <= 0)
+                if (collision.gameObject.name == "Player_2")
                 {
                     //positionに爆発エフェクト生成
                     Effect();

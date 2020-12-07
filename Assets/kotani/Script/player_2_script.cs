@@ -35,7 +35,7 @@ public class player_2_script : MonoBehaviour
         }
 
         if (((transform.position + vel).x + GetComponent<Transform>().localScale.x / 2) >= 0) { vel.x = 0; }
-        if(transform.position.x > 0) { transform.position = new Vector3(GetComponent<Transform>().localScale.x / 2, transform.position.y, 0); }
+        if(transform.position.x > 0) { transform.position = new Vector3(-GetComponent<Transform>().localScale.x / 2, transform.position.y, 0); }
         this.transform.position += vel;
     }
 }

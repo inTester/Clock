@@ -53,6 +53,7 @@ public class CpuReflection : MonoBehaviour
         hit = MySystem.RaycastAndDraw(this.gameObject.transform.position, new Vector2(0.5f, -0.5f), DISTANCE, 1 << 10);
         if (!hit.collider)
         {
+            bomRb2D.velocity = Vector3.zero;
             bomRb2D.AddForce(new Vector3(0.5f, -0.5f) * POWER);
             return true;
         }
@@ -60,6 +61,7 @@ public class CpuReflection : MonoBehaviour
         hit = MySystem.RaycastAndDraw(this.gameObject.transform.position, new Vector3(0.5f, 0.5f), DISTANCE, 1 << 10);
         if (!hit.collider)
         {
+            bomRb2D.velocity = Vector3.zero;
             bomRb2D.AddForce(new Vector3(0.5f, 0.5f) * POWER);
             return true;
         }
@@ -67,6 +69,7 @@ public class CpuReflection : MonoBehaviour
         hit = MySystem.RaycastAndDraw(this.gameObject.transform.position, new Vector3(1f, 0f), DISTANCE, 1 << 10);
         if (!hit.collider)
         {
+            bomRb2D.velocity = Vector3.zero;
             bomRb2D.AddForce(new Vector3(1f, 0f) * POWER);
             return true;
         }
@@ -74,10 +77,12 @@ public class CpuReflection : MonoBehaviour
         //どこも開いていなければ現在地から
         if (this.gameObject.transform.position.y >= 0)
         {
+            bomRb2D.velocity = Vector3.zero;
             bomRb2D.AddForce(new Vector3(0.5f, 0.5f) * POWER);
         }
         else
         {
+            bomRb2D.velocity = Vector3.zero;
             bomRb2D.AddForce(new Vector3(0.5f, -0.5f) * POWER);
         }
         return true;
