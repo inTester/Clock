@@ -10,6 +10,7 @@ public class CpuReflection : MonoBehaviour
     List<GameObject> bombOb = new List<GameObject>();
 
     float startTime;
+    [SerializeField] float reflecting_nerve; //反射神経
     //一定時間経過したら飛ばす
 
 
@@ -46,7 +47,7 @@ public class CpuReflection : MonoBehaviour
     //rayで障害物があるかを調べ、指定の方向に飛ばす
     bool Reflect(Rigidbody2D bomRb2D)
     {
-        if (Time.time - startTime < 0.05f) return false;
+        if (Time.time - startTime < reflecting_nerve) return false;
 
         RaycastHit2D hit;
         //右下

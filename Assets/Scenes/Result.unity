@@ -570,7 +570,7 @@ PrefabInstance:
     - target: {fileID: 8513976867404103592, guid: 63416d82ec6fd5c48a0c8a3239a7543f,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 101
       objectReference: {fileID: 0}
     - target: {fileID: 8513976867404103592, guid: 63416d82ec6fd5c48a0c8a3239a7543f,
         type: 3}
@@ -580,7 +580,7 @@ PrefabInstance:
     - target: {fileID: 8513976867404103592, guid: 63416d82ec6fd5c48a0c8a3239a7543f,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 187.5491
+      value: 269.6448
       objectReference: {fileID: 0}
     - target: {fileID: 8513976867404103592, guid: 63416d82ec6fd5c48a0c8a3239a7543f,
         type: 3}
@@ -636,6 +636,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.g
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8513976867404103599, guid: 63416d82ec6fd5c48a0c8a3239a7543f,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63416d82ec6fd5c48a0c8a3239a7543f, type: 3}
@@ -715,7 +720,7 @@ PrefabInstance:
     - target: {fileID: 8513976867404103592, guid: 63416d82ec6fd5c48a0c8a3239a7543f,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -83
       objectReference: {fileID: 0}
     - target: {fileID: 8513976867404103592, guid: 63416d82ec6fd5c48a0c8a3239a7543f,
         type: 3}
@@ -725,7 +730,7 @@ PrefabInstance:
     - target: {fileID: 8513976867404103592, guid: 63416d82ec6fd5c48a0c8a3239a7543f,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 187.54907
+      value: 230.1677
       objectReference: {fileID: 0}
     - target: {fileID: 8513976867404103592, guid: 63416d82ec6fd5c48a0c8a3239a7543f,
         type: 3}
@@ -801,6 +806,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 0.50980395
+      objectReference: {fileID: 0}
+    - target: {fileID: 8513976867404103599, guid: 63416d82ec6fd5c48a0c8a3239a7543f,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63416d82ec6fd5c48a0c8a3239a7543f, type: 3}
@@ -1118,6 +1128,10 @@ PrefabInstance:
     - target: {fileID: 130190, guid: fd9d58dbfb8f846f58b62a48334a0058, type: 3}
       propertyPath: m_Name
       value: FadeManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 130190, guid: fd9d58dbfb8f846f58b62a48334a0058, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 474238, guid: fd9d58dbfb8f846f58b62a48334a0058, type: 3}
       propertyPath: m_LocalPosition.x

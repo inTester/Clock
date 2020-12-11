@@ -71,7 +71,7 @@ public class Bomb_script : MonoBehaviour
             Effect();
             //左右どちらのエリアで爆発したか
             if (this.transform.position.x >= 0) { ExplosionL(1); }
-            else if (this.transform.position.x <= 0) { ExplosionR(1); }
+            if (this.transform.position.x <= 0) { ExplosionR(1); }
         }
     }
 
@@ -165,8 +165,8 @@ public class Bomb_script : MonoBehaviour
                     //positionに爆発エフェクト生成
                     Effect();
                     //player爆発で移動しない
-                    GameObject player_1 = GameObject.Find("Player_1");
-                    player_1.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+                   // GameObject player_1 = GameObject.Find("Player_1");
+                   // player_1.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
                     //点数加算
                     ExplosionR(1);
                 }
@@ -175,8 +175,8 @@ public class Bomb_script : MonoBehaviour
                     //positionに爆発エフェクト生成
                     Effect();
                     //player爆発で移動しない
-                    GameObject player_2 = GameObject.Find("Player_2");
-                    player_2.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+                  //  GameObject player_2 = GameObject.Find("Player_2");
+                  //  player_2.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
                     //点数加算
                     ExplosionL(1);
                 }

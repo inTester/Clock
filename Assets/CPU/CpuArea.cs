@@ -67,6 +67,7 @@ public class CpuArea : MonoBehaviour
 
         for (int i = 0; i < bombOb.Count; i++)
         {
+            if (bombOb[i] == null) continue;
             if (bombOb[i].name == collision.name)
             {
                 bombOb.RemoveAt(i);
