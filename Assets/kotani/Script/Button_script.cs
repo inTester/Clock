@@ -22,6 +22,9 @@ public class Button_script : MonoBehaviour
     [SerializeField] AudioClip next = default;
     [SerializeField] AudioClip select = default;
     [SerializeField] AudioSource audioSource = default;
+    [SerializeField] Image art = default;
+    [SerializeField] Sprite[] select1 = new Sprite[2];
+    [SerializeField] Sprite[] select2 = new Sprite[2];
 
     // Start is called before the first frame update
     void Start()
@@ -48,16 +51,29 @@ public class Button_script : MonoBehaviour
             case "Button_sec1":
                 TextChange(ref count1, text1, "１つずつ", "複数", ref flag1);
                 if (flag1)
-                { text.text = "今ある爆弾が爆発してから次の爆弾が出現します。\n初心者向け。"; }
+                {
+                    text.text = "今ある爆弾が爆発してから次の爆弾が出現します。\n初心者向け。";
+                    art.sprite = select1[0];
+                }
                 else
-                { text.text = "一定時間ごとに爆弾が出現します。\n上級者向け。"; }
+                {
+                    text.text = "一定時間ごとに爆弾が出現します。\n上級者向け。";
+                    art.sprite = select1[1];
+                    
+                }
                 break;
             case "Button_sec2":
                 TextChange(ref count2, text2, "２人", "１人", ref flag2);
                 if (flag2)
-                { text.text = "対人モード。\nコントローラーを２つ使います。"; }
+                {
+                    text.text = "対人モード。\nコントローラーを２つ使います。";
+                    art.sprite = select2[0];
+                }
                 else
-                { text.text = "対CPUモード。\n右側のコントローラー使います。"; }
+                {
+                    text.text = "対CPUモード。\n右側のコントローラーを使います。";
+                    art.sprite = select2[1];
+                }
                 break;
             case "Button_return":
                 SceneChange("Tutorial2");
