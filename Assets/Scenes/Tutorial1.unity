@@ -231,11 +231,11 @@ MonoBehaviour:
     description: "\u3053\u306E\u30B2\u30FC\u30E0\u306F\u3001\u76F8\u624B\u9663\u5730\u3078\u7206\u5F3E\u3092\u6295\u3052\u8FBC\u3080\n\r\u30DC\u30E0\u30A2\u30AF\u30B7\u30E7\u30F3\u30B2\u30FC\u30E0\r\u3067\u3059\n"
   - video: {fileID: 0}
     image: {fileID: 21300000, guid: 4f35905c65b9d53409894c36459c7593, type: 3}
-    head: "\u3010\u64CD\u4F5C\u65B9\u6CD5 <color=#FF009D>\u53F3\u30D7\u30EC\u30A4\u30E4\u30FC</color>\u3011"
+    head: "\u3010\u64CD\u4F5C\u65B9\u6CD5 <color=#00A0F5>\u53F3\u30D7\u30EC\u30A4\u30E4\u30FC</color>\u3011"
     description: "\u5DE6\u30B9\u30C6\u30A3\u30C3\u30AF\uFF1A\u79FB\u52D5\nY,X,A\u30DC\u30BF\u30F3\uFF1A\u7206\u5F3E\u3092\u6295\u3052\u308B"
   - video: {fileID: 0}
     image: {fileID: 21300000, guid: de67c9d64228279408047ce90cef49ba, type: 3}
-    head: "\u3010 <color=#00A0F5>\u5DE6\u30D7\u30EC\u30A4\u30E4\u30FC</color> \u64CD\u4F5C\u65B9\u6CD5\u3011"
+    head: "\u3010 <color=#FF009D>\u5DE6\u30D7\u30EC\u30A4\u30E4\u30FC</color> \u64CD\u4F5C\u65B9\u6CD5\u3011"
     description: "\u5DE6\u30B9\u30C6\u30A3\u30C3\u30AF\uFF1A\u79FB\u52D5\nY,B,A\u30DC\u30BF\u30F3\uFF1A\u7206\u5F3E\u3092\u6295\u3052\u308B"
   - video: {fileID: 0}
     image: {fileID: 21300000, guid: 4bbe864cef20f6c4a8a3ef34d29182c3, type: 3}

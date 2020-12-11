@@ -24,6 +24,7 @@ public class ExplosionCount_script : MonoBehaviour
 
     public void AddCount(int i)
     {
+        if (count >= 99) return;
         count += i;
         Motion();
     }
